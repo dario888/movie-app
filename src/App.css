@@ -1,0 +1,30 @@
+/* navbar */
+.navbar{
+    height: 70px;
+    font-size: 20px;
+}
+
+.menu-item{
+    color: #eee;
+    transition: color .5s;
+    
+}
+
+.menu-item:hover{
+    color: rgb(64, 169, 255);
+    text-decoration-line: none;
+}
+
+.nav-active{
+    color: rgb(64, 169, 255);
+}
+
+.movie-app{
+    color: rgb(253, 165, 0);
+}
+/* end navbar */
+/*  Home */
+.input{
+    width: 80%;
+}
+/* end Home */
