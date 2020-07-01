@@ -1,7 +1,8 @@
-
+import {GET_POPULAR_MOVIES, LOADING} from '../types'
 
 const initState = {
-    movies: []
+    moviesPopular: [],
+    loading: false
 }
 
 
@@ -9,9 +10,18 @@ export default (state=initState, action) => {
 
     switch ( action.type) {
 
-        case 'GET_MOVIES':
+        case GET_POPULAR_MOVIES:
             return{
-                ...state
+                ...state,
+                moviesPopular: action.payload,
+                loading: false
+            }
+
+        case LOADING:
+            return{
+                ...state,
+                loading: true
+
             }
             
     
