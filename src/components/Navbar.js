@@ -11,7 +11,7 @@ const Navbar = () => {
             <span className="font-weight-bold movie-app">MOVIE-APP</span>
             <div className="collapse navbar-collapse justify-content-end" id="myNavbar">
                 <div className="navbar-nav">           
-                    <NavLink className="menu-item m-2" activeClassName="nav-active" exact to='/'>Movies</NavLink>                            
+                    <NavLink className="menu-item m-2" activeClassName="nav-active" exact to='/'>Home</NavLink>                            
                     <NavLink className="menu-item m-2" activeClassName="nav-active" exact to='/tvshows'>TV Shows</NavLink>                  
                     <NavLink className="menu-item m-2" activeClassName="nav-active" exact to='/artists'>Artists</NavLink>                
                 </div>

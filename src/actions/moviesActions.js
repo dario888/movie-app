@@ -1,4 +1,4 @@
-import {GET_POPULAR_MOVIES, LOADING} from '../types'
+import {GET_POPULAR_MOVIES, LOADING, SEARCH_MOVIE} from '../types'
 import axios from 'axios';
 
 
@@ -6,8 +6,8 @@ import axios from 'axios';
 
 const apiKey = process.env.REACT_APP_KEY
 
-export const setLoading = () => ({type: LOADING})
 
+//GET POPULAR MOVIES
 export const getPopularMovies = () => async(dispatch) =>{
     
     try {
@@ -20,4 +20,25 @@ export const getPopularMovies = () => async(dispatch) =>{
         console.log(error);
     }
 } 
+
+//SEARCHING MOVIES AND SHOWS
+export const searchMovies = (searchTerm) => async(dispatch) =>{
+    
+    try {
+        setLoading();
+       const res = await axios(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${searchTerm}`)
+        // console.log(res.data.results); //[{},{}]
+        dispatch({type: SEARCH_MOVIE, payload: res.data.results })
+
+    } catch (error) {
+        console.log(error);
+    }
+} 
+
+//SET LOADING
+export const setLoading = () => ({type: LOADING})
+
+
+
+
 
