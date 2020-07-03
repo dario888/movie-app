@@ -1,21 +1,21 @@
 import React, {useState} from 'react'
+import  {useHistory} from 'react-router-dom'
 import { searchMovies} from '../actions/moviesActions'
 import { connect } from 'react-redux';
 
 
 
 
-
 const Header = ({ searchMovies }) => {
     // SET SEARCHMOVIES IN REDUCER
-
+    const history = useHistory();
+    // console.log(history);
     const [searchTerm, setSearchTerm] = useState('');
-
 
     const handleSubmit = (e) => {
         e.preventDefault()
         searchMovies(searchTerm)
-        
+        history.replace('/search_movies')
     }
 
     const handleChange = (e) =>setSearchTerm(e.target.value);

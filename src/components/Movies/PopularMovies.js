@@ -1,15 +1,16 @@
 import React, {useEffect,Fragment} from 'react'
 import { connect } from 'react-redux';
 
+import MoviesGrid from './MoviesGrid'
+import PaginationPopularMovies from './PaginationPopularMovies'
+import Header from '../Header';                    
+import {getPopularMovies, searchMovies} from '../../actions/moviesActions'
 
-import Header from './Header';                    
-import {getPopularMovies, searchMovieShows} from '../actions/moviesActions'
 
 
 
+const PopularMovies = ({getPopularMovies, moviesPopular, loading, searchMovies}) => {
 
-const PopularMovies = ({getPopularMovies, moviesPopular, loading, searchMovie}) => {
-    const urlImage = process.env.REACT_APP_IMG;
 
     useEffect(() => {   
         getPopularMovies()  
@@ -30,23 +31,14 @@ const PopularMovies = ({getPopularMovies, moviesPopular, loading, searchMovie}) 
             <div className="container ">
                 <div className="row justify-content-center " >                 
                 {                            
-                    !loading &&  moviesPopular.map( movie =>
-                    <div className="row card m-1" style={{ width: "200px" }}  key={movie.id} >
-                        <img src={`${urlImage}/w500/${movie.poster_path}`} className="card-img-top" alt="poster" />
-                        <div className="card-body bg-dark">
-                            <h5 className="card-title text-warning">{movie.title}</h5>
-                            <a href="/" className="btn btn-outline-warning text-muted">Details</a>
-                        </div>
-                    </div>   
-                
-                    ) 
+                    !loading &&  moviesPopular.map( movie => 
+                    <MoviesGrid key={movie.id} posterPath={movie.poster_path} title={movie.title}/> ) 
                 }
                 </div>
             </div>  
         </section>
-
-
-        {/* GRID     */} 
+        {/* GRID  */} 
+        <PaginationPopularMovies getPopularMovies={getPopularMovies} />
         </Fragment>
   
     )
@@ -59,4 +51,4 @@ const mapStateToProps = state => ({
 
 });
 
-export default connect(mapStateToProps, {getPopularMovies, searchMovieShows})(PopularMovies) 
+export default connect(mapStateToProps, {getPopularMovies, searchMovies})(PopularMovies) 

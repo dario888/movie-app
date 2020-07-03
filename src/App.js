@@ -3,7 +3,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {Provider} from 'react-redux';
 
 import Home from './components/Home';
-import SearchMovies from './components/SearchMovies';
+import SearchMovies from './components/Movies/SearchMovies';
 import Navbar from './components/Navbar';
 import store from './store';
 
@@ -17,7 +17,7 @@ function App() {
     <Navbar />
     <Switch>
       <Route exact path='/' component={Home}/>
-      <Route exact path='/search_movie' component={SearchMovies}/>
+      <Route exact path='/search_movies' component={SearchMovies}/>
     </Switch>
     </Provider>
     </BrowserRouter>

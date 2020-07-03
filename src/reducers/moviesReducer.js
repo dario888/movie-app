@@ -4,7 +4,8 @@ const initState = {
     moviesPopular: [],
     loading: false,
     searchTerm: '',
-    searchMovie: null
+    searchMovie: null,
+    totalResults: 0, 
 
 }
 
@@ -16,14 +17,16 @@ export default (state=initState, action) => {
         case GET_POPULAR_MOVIES:
             return{
                 ...state,
-                moviesPopular: action.payload,
+                moviesPopular: action.payload.results,
+                totalResults: action.payload.total_results,
                 loading: false
             }
             
             case SEARCH_MOVIE:
                 return{
                     ...state,
-                    searchMovie: action.payload,
+                    searchMovie: action.payload.results,
+                    totalResults: action.payload.total_results,
                     loading: false
                     
                 }
@@ -31,12 +34,11 @@ export default (state=initState, action) => {
                 case LOADING:
                     return{
                         ...state,
-                        loading: true
-        
+                        loading: true       
                     }
-            
+              
     
-        default:
+            default:
             return state;
     }
 }
