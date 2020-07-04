@@ -27,7 +27,7 @@ const PaginationPopularMovies = ({getPopularMovies, totalResults}) => {
  
     return (
       
-      <div className="container">
+      <div className="container mb-4">
         <div className="row justify-content-center">
           <ul className="pagination">
             {
@@ -51,7 +51,7 @@ const PaginationPopularMovies = ({getPopularMovies, totalResults}) => {
             {
               currentPage < numberPages ?
               <li onClick={ () => setCurrentPage(currentPage + 1)}  className={`page-item`}>
-                    <span className="page-link btn">Next</span>            
+                <button className="page-link btn">Next</button>            
               </li> : ''
             }
           </ul>

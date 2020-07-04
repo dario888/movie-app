@@ -5,6 +5,7 @@ import {Provider} from 'react-redux';
 import Home from './components/Home';
 import SearchMovies from './components/Movies/SearchMovies';
 import Navbar from './components/Navbar';
+import Details from './components/Details';
 import store from './store';
 
 import './App.css';
@@ -18,6 +19,7 @@ function App() {
     <Switch>
       <Route exact path='/' component={Home}/>
       <Route exact path='/search_movies' component={SearchMovies}/>
+      <Route exact path='/details' component={Details}/>
     </Switch>
     </Provider>
     </BrowserRouter>

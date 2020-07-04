@@ -1,4 +1,4 @@
-import {GET_POPULAR_MOVIES, LOADING, SEARCH_MOVIE} from '../types'
+import {GET_POPULAR_MOVIES, LOADING, SEARCH_MOVIE, SET_MOVIE_DETAILS} from '../types'
 
 const initState = {
     moviesPopular: [],
@@ -6,6 +6,7 @@ const initState = {
     searchTerm: '',
     searchMovie: null,
     totalResults: 0, 
+    details: null
 
 }
 
@@ -35,6 +36,13 @@ export default (state=initState, action) => {
                     return{
                         ...state,
                         loading: true       
+                    }
+              
+                case SET_MOVIE_DETAILS:
+                    return{
+                        ...state,
+                        details: action.payload,
+                        loading: false      
                     }
               
     

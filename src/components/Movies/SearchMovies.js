@@ -19,7 +19,8 @@ const SearchMovies = ({searchMovie, loading}) => {
                 <div className="row justify-content-center" >                 
                 {
                     !loading &&  searchMovie.map( movie =>
-                    <MoviesGrid key={movie.id} posterPath={movie.poster_path} title={movie.title}/> )
+                    <MoviesGrid key={movie.id} 
+                    movieID={movie.id} posterPath={movie.poster_path} title={movie.title}/> )
 
                 }
                 </div>
