@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import { connect } from 'react-redux';
 
 import Header from '../Header';   
+import Title from '../Title';    
 import MoviesGrid from './MoviesGrid'
 
 
@@ -14,6 +15,7 @@ const SearchMovies = ({searchMovie, loading}) => {
     return (
         <Fragment>
             <Header />
+            <Title titleName='Search Movies' />
             <section className="container p-sm-4 ">
             <div className="container">
                 <div className="row justify-content-center" >                 

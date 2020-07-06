@@ -23,11 +23,18 @@
     color: rgb(253, 165, 0);
 }
 /* end navbar */
+/* Title */
+.title {
+    font-family: 'Bangers', cursive;
+    font-size: 6rem;
+}
+/* font-family:  */
+/* end Title */
 /*  Home */
 .card-img-top{
     width:100%;
     height: 320px;
-    flex: box;
-  
+    flex: box;   
 }
+
 /* end Home */

@@ -34,7 +34,10 @@ const PaginationPopularMovies = ({getPopularMovies, totalResults}) => {
               currentPage > 1 ?
               <li onClick={ () => setCurrentPage(currentPage - 1) }  className={`page-item `}>
                     <span className="page-link btn">Prev</span>            
-              </li> : ''
+              </li> : 
+              <li className={`page-item disable`}>
+                <span className="page-link btn">Prev</span>            
+              </li>
             }
 
             {
@@ -52,7 +55,10 @@ const PaginationPopularMovies = ({getPopularMovies, totalResults}) => {
               currentPage < numberPages ?
               <li onClick={ () => setCurrentPage(currentPage + 1)}  className={`page-item`}>
                 <button className="page-link btn">Next</button>            
-              </li> : ''
+              </li> : 
+              <li  className={`page-item disable`}>
+                <button className="page-link btn">Next</button>            
+              </li>
             }
           </ul>
         </div >

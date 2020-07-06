@@ -1,4 +1,5 @@
-import {GET_POPULAR_MOVIES, LOADING, SEARCH_MOVIE, SET_MOVIE_DETAILS} from '../types'
+import {GET_POPULAR_MOVIES, LOADING, SEARCH_MOVIE, SET_MOVIE_DETAILS, 
+ ADD_LIST_ITEMS, REMOVE_LIST_ITEMS, CLEAR_LIST} from '../types'
 
 const initState = {
     moviesPopular: [],
@@ -6,7 +7,8 @@ const initState = {
     searchTerm: '',
     searchMovie: null,
     totalResults: 0, 
-    details: null
+    details: null, //{}
+    listItems: JSON.parse(localStorage.getItem('listItems')) || []
 
 }
 
@@ -43,8 +45,28 @@ export default (state=initState, action) => {
                         ...state,
                         details: action.payload,
                         loading: false      
+                    }    
+
+                case ADD_LIST_ITEMS:
+                    return{
+                        ...state,
+                        listItems: [...state.listItems, action.payload]
+                            
                     }
-              
+
+                case REMOVE_LIST_ITEMS:
+                    return{
+                        ...state,
+                        listItems: state.listItems.filter(item => item.id !== action.payload)
+                            
+                    }    
+
+                case CLEAR_LIST:
+                    return{
+                        ...state,
+                        listItems: []
+                            
+                    }              
     
             default:
             return state;

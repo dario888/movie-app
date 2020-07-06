@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import MoviesGrid from './MoviesGrid'
 import PaginationPopularMovies from './PaginationPopularMovies'
 import Header from '../Header';                    
+import Title from '../Title';                    
 import {getPopularMovies,} from '../../actions/moviesActions'
 
 
@@ -19,15 +20,6 @@ const PopularMovies = ({getPopularMovies, moviesPopular, loading, }) => {
         //eslint-disable-next-line   
     }, []) 
 
-    // const popularMovieDetails = (id) => {
-    //     const filteredMovie = moviesPopular.filter(movie => movie.id === id)
-    //     const newCurrentMovie = filteredMovie.length > 0 ? filteredMovie[0] : null
-    //     setCurrentMovie(filteredMovie);
-    // }
-
-    
-    
-    // (searchMovie && <SearchMovies loading={loading} searchMovie={searchMovie} urlImage={urlImage}/>) ||
     if(loading || !moviesPopular)return <h2>Loading...</h2>
 
 
@@ -35,6 +27,7 @@ const PopularMovies = ({getPopularMovies, moviesPopular, loading, }) => {
         <Fragment>
             <Header />
             {/* TITLE */}
+            <Title titleName='Popular Movies' />
             {/* TITLE */}
         {/* GRID     */} 
         <section className="container p-sm-3 mb-4">

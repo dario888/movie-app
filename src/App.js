@@ -5,7 +5,8 @@ import {Provider} from 'react-redux';
 import Home from './components/Home';
 import SearchMovies from './components/Movies/SearchMovies';
 import Navbar from './components/Navbar';
-import Details from './components/Details';
+import Details from './components/Movies/Details';
+import MyList from './components/Movies/MyList';
 import store from './store';
 
 import './App.css';
@@ -20,6 +21,7 @@ function App() {
       <Route exact path='/' component={Home}/>
       <Route exact path='/search_movies' component={SearchMovies}/>
       <Route exact path='/details' component={Details}/>
+      <Route exact path='/my_list' component={MyList}/>
     </Switch>
     </Provider>
     </BrowserRouter>
