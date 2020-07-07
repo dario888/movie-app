@@ -1,12 +1,14 @@
 import React, {} from 'react'
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import  { NavLink } from 'react-router-dom'
 import {movieDetails} from '../../actions/moviesActions'
 
 
 
-const MoviesGrid = ({ posterPath, title, movieID, movieDetails}) => {
+const MoviesGrid = ({ posterPath, title, movieID }) => {
    
+    const dispatch = useDispatch()
+
     const urlImage = process.env.REACT_APP_IMG;
 
    
@@ -17,7 +19,7 @@ const MoviesGrid = ({ posterPath, title, movieID, movieDetails}) => {
             <div className="card-body bg-dark">
                 <h5 className="card-title text-warning">{title}</h5>
                 <NavLink  to="/details" className="btn btn-outline-warning text-light" 
-                onClick={ () => movieDetails(movieID) } >
+                onClick={ () => dispatch( movieDetails(movieID) ) } >
                     Details
                 </NavLink>
             </div>
@@ -25,4 +27,5 @@ const MoviesGrid = ({ posterPath, title, movieID, movieDetails}) => {
     )
 }
 
-export default connect(null,{movieDetails})(MoviesGrid)
+export default MoviesGrid
+// export default connect(null,{movieDetails})(MoviesGrid)

@@ -23,7 +23,7 @@ export const getPopularMovies = (pageNumber=1) => async(dispatch) =>{
 } 
 
 //SEARCHING MOVIES AND SHOWS
-export const searchMovies = (searchTerm) => async(dispatch) =>{
+export const searchMovies = (searchTerm, pageNumber=1) => async(dispatch) =>{
     
     try {
         setLoading(); 

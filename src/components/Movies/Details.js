@@ -1,13 +1,21 @@
 import React, {Fragment} from 'react'
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import  {useHistory, NavLink} from 'react-router-dom'
 import {addListItems} from '../../actions/moviesActions';
 import Title from '../Title';   
 
 
 
-const Details = ({details, loading, listItems, addListItems}) => {
+const Details = () => {
+    const {details, loading, listItems} = useSelector(state => ({
+        details: state.movies.details,
+        loading: state.movies.loading,
+        listItems: state.movies.listItems,
+
+    }))
     
+    const dispatch = useDispatch()
+
     const history = useHistory();
     const goBackHistory = () => history.goBack('/')
     
@@ -54,8 +62,8 @@ const Details = ({details, loading, listItems, addListItems}) => {
                             <span class="badge badge-success">The Movie is Added</span>
                         </h4> 
                         :
-                        <NavLink onClick={()=> addListItems({title, id, runtime})} to='/my_list' 
-                        className="btn btn-outline-primary m-auto">
+                        <NavLink onClick={()=> dispatch( addListItems({title, id, runtime}) )} 
+                        to='/my_list' className="btn btn-outline-primary m-auto" >
                             Add To List
                         </NavLink>
                     }
@@ -69,10 +77,11 @@ const Details = ({details, loading, listItems, addListItems}) => {
     )
 }
 
-const mapStateToProps = (state) => ({
-    details: state.movies.details,
-    loading: state.movies.loading,
-    listItems: state.movies.listItems,
-})
+export default Details
+// const mapStateToProps = (state) => ({
+//     details: state.movies.details,
+//     loading: state.movies.loading,
+//     listItems: state.movies.listItems,
+// })
 
-export default connect(mapStateToProps, {addListItems})(Details)
+// export default connect(mapStateToProps, {addListItems})(Details)

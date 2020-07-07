@@ -1,12 +1,15 @@
 import React, {useState} from 'react'
 import  {useHistory} from 'react-router-dom'
 import { searchMovies} from '../actions/moviesActions'
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 
 
 
-const Header = ({ searchMovies }) => {
+const Header = () => {
+
+    const dispatch = useDispatch()
+
     // SET SEARCHMOVIES IN REDUCER
     const history = useHistory();
     // console.log(history);
@@ -14,7 +17,7 @@ const Header = ({ searchMovies }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        searchMovies(searchTerm)
+        dispatch(searchMovies(searchTerm))
         history.replace('/search_movies')
     }
 
@@ -37,4 +40,4 @@ const Header = ({ searchMovies }) => {
     )
 }
 
-export default connect(null, {searchMovies})(Header)
+export default Header

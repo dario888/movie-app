@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';  
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Header from '../Header';   
 import Title from '../Title';    
@@ -8,7 +8,13 @@ import MoviesGrid from './MoviesGrid'
 
 
 
-const SearchMovies = ({searchMovie, loading}) => {
+const SearchMovies = () => {
+
+   const {searchMovie, loading} = useSelector(state => ({
+    searchMovie: state.movies.searchMovie,
+    loading: state.movies.loading,
+
+}))
 
     if(loading || !searchMovie)return <h2>Loading...</h2>
 
@@ -32,11 +38,12 @@ const SearchMovies = ({searchMovie, loading}) => {
     )
 }
 
-const mapStateToProps = state => ({
-    searchMovie: state.movies.searchMovie,
-    loading: state.movies.loading,
+// const mapStateToProps = state => ({
+//     searchMovie: state.movies.searchMovie,
+//     loading: state.movies.loading,
 
-});
+// });
 
 
-export default connect(mapStateToProps)(SearchMovies)
+// export default connect(mapStateToProps)(SearchMovies)
+export default SearchMovies

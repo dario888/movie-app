@@ -1,5 +1,5 @@
 import React, {useEffect, Fragment} from 'react'
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import  {useHistory} from 'react-router-dom'
 import {removeListItems, clearList} from '../../actions/moviesActions';
 import Title from '../Title';   
@@ -7,7 +7,10 @@ import Title from '../Title';
 
 
 
-const MyList = ({listItems, removeListItems, clearList}) => {
+const MyList = () => {
+
+    const {listItems} = useSelector((state) => ({ listItems: state.movies.listItems }) )
+    const dispatch = useDispatch()
 
     //Post data on LOCALSTORAGE Component Updated
     useEffect(() => {
@@ -50,7 +53,8 @@ const MyList = ({listItems, removeListItems, clearList}) => {
                             <tr key={item.id}>                      
                                 <td>{item.title}</td>
                                 <td>{item.runtime + ' min'}</td>
-                                <td><span onClick={() => removeListItems(item.id)} className="btn btn-danger">
+                                <td><span onClick={() => dispatch( removeListItems(item.id) )} 
+                                className="btn btn-danger" >
                                     Remove
                                 </span></td>
                             </tr> )
@@ -59,7 +63,7 @@ const MyList = ({listItems, removeListItems, clearList}) => {
                     </tbody>
                 </table>
                 <div className="row justify-content-end px-3">
-                    <button onClick={() => clearList()}  className="btn btn-info">
+                    <button onClick={() => dispatch( clearList() )}  className="btn btn-info">
                         Clear
                     </button>
                 </div>
@@ -71,10 +75,11 @@ const MyList = ({listItems, removeListItems, clearList}) => {
 }
 
 
-const mapStateToProps = (state) => ({
-    listItems: state.movies.listItems,
+export default MyList
+// const mapStateToProps = (state) => ({
+//     listItems: state.movies.listItems,
     
-})
+// })
 
 
-export default connect(mapStateToProps, {removeListItems, clearList})(MyList)
+// export default connect(mapStateToProps, {removeListItems, clearList})(MyList)

@@ -1,21 +1,26 @@
 import React, {useEffect, Fragment} from 'react'
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import MoviesGrid from './MoviesGrid'
 import PaginationPopularMovies from './PaginationPopularMovies'
 import Header from '../Header';                    
 import Title from '../Title';                    
-import {getPopularMovies,} from '../../actions/moviesActions'
+import {getPopularMovies} from '../../actions/moviesActions'
 
 
 
 
-const PopularMovies = ({getPopularMovies, moviesPopular, loading, }) => {
+const PopularMovies = () => {
 
+    const {moviesPopular, loading} = useSelector(state => ({
+        moviesPopular: state.movies.moviesPopular,
+        loading: state.movies.loading
+    }))
 
-
+    const dispatch = useDispatch()
+    
     useEffect(() => {   
-        getPopularMovies()  
+        dispatch(getPopularMovies())   
       
         //eslint-disable-next-line   
     }, []) 
@@ -42,17 +47,19 @@ const PopularMovies = ({getPopularMovies, moviesPopular, loading, }) => {
             </div>  
         </section>
         {/* GRID  */} 
-        <PaginationPopularMovies getPopularMovies={getPopularMovies} />
+        <PaginationPopularMovies  />
         </Fragment>
   
     )
 }
 
+export default PopularMovies
+
 // state --> movies --> moviesReducer {moviesPopular, loading}
-const mapStateToProps = state => ({
-    moviesPopular: state.movies.moviesPopular,
-    loading: state.movies.loading,
+// const mapStateToProps = state => ({
+//     moviesPopular: state.movies.moviesPopular,
+//     loading: state.movies.loading,
 
-});
+// });
 
-export default connect(mapStateToProps, {getPopularMovies})(PopularMovies) 
+// export default connect(mapStateToProps, {getPopularMovies})(PopularMovies) 
