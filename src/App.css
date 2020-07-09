@@ -4,32 +4,60 @@
     font-size: 20px;
 }
 
-.menu-item{
-    color: #eee;
-    transition: color .5s;
-    
-}
-
-.menu-item:hover{
-    color: rgb(64, 169, 255);
-    text-decoration-line: none;
-}
-
-.nav-active{
-    color: rgb(64, 169, 255);
-}
-
 .movie-app{
     color: rgb(253, 165, 0);
 }
+
+/* Hamburger menu */
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.nav-menu{
+    background: #343a40;
+    padding: 30px;
+    transition: all .7s;
+}
+
+.change .line1{
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+
+.change .line2{
+    opacity: 0;
+}
+
+.change .line3{
+    transform: rotate(45deg) translate(-5px,-6px);
+}
+
+.line1, .line2, .line3{
+    width: 23px;
+    height: 2px;
+    margin: 5px;
+    transition: all .4s;
+}
+
+/*Without this, clicking will make it sticky*/
+/* .dropdown>.dropdown-toggle:active {
+      pointer-events: none;
+  } */
+
 /* end navbar */
+/* header */
+.headerForm {
+    margin-top: 80px;
+}
+/* end header */
+
 /* Title */
 .title {
     font-family: 'Bangers', cursive;
     font-size: 6rem;
 }
-/* font-family:  */
+
 /* end Title */
+
 /*  Home */
 .card-img-top{
     width:100%;

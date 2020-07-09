@@ -1,28 +1,35 @@
 import React, {useState, useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import {getPopularMovies} from '../../actions/moviesActions'
+import { searchMovies } from '../../actions/moviesActions'
 
 
 
 
 
-const PaginationPopularMovies = () => {
+const PaginationSearch = ({popular, topRated, upcoming}) => {
   
-  const {totalResults} = useSelector((state) => ({ totalResults: state.movies.totalResults }) )
+  const [currentPage, setCurrentPage] = useState(1)  
+
+  const {totalSearchResults, searchTerm} = useSelector((state) => ({ 
+    totalSearchResults: state.movies.totalSearchResults,
+    searchTerm: state.movies.searchTerm
+
+   }) )
+
   const dispatch = useDispatch()
 
-  const [currentPage, setCurrentPage] = useState(1)  
 
   // ComponentDidUpdate when currentPage is change
   useEffect(() => {
-    dispatch(getPopularMovies(currentPage))
+  
+    dispatch(searchMovies(searchTerm, currentPage))
 
     //eslint-disable-next-line  
   }, [currentPage])
 
 
   const pageNumbers = [];
-  const numberPages = totalResults < 201 ? Math.ceil(totalResults / 20) : Math.ceil(200 / 20)
+  const numberPages = totalSearchResults < 201 ? Math.ceil(totalSearchResults / 20) : Math.ceil(200 / 20)
 
   for (let i = 1; i <= numberPages; i++) {
       pageNumbers.push(i);
@@ -71,7 +78,7 @@ const PaginationPopularMovies = () => {
   )
 }
 
-export default PaginationPopularMovies
+export default PaginationSearch
 
 // const mapStateToProps = state => ({
 //   totalResults: state.movies.totalResults,

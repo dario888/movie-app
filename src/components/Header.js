@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React from 'react'
 import  {useHistory} from 'react-router-dom'
-import { searchMovies} from '../actions/moviesActions'
-import { useDispatch } from 'react-redux';
+import { searchMovies, setSearchTerm} from '../actions/moviesActions'
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
@@ -12,8 +12,10 @@ const Header = () => {
 
     // SET SEARCHMOVIES IN REDUCER
     const history = useHistory();
-    // console.log(history);
-    const [searchTerm, setSearchTerm] = useState('');
+
+    // const [searchTerm, setSearchTerm] = useState('');
+    
+  const {searchTerm} = useSelector((state) => ({ searchTerm: state.movies.searchTerm }) )
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -21,12 +23,12 @@ const Header = () => {
         history.replace('/search_movies')
     }
 
-    const handleChange = (e) =>setSearchTerm(e.target.value);
+    const handleChange = (e) =>dispatch(setSearchTerm(e.target.value));
     // setSearchTerm(e.target.value)
 
     return (
-        <section className="container p-sm-4 ">
-            <div className="my-3">
+        <div className="container p-sm-4 headerForm">
+            <div className="my-auto">
                 <form className="form-inline" onSubmit={handleSubmit}>
                     <div className="input-group m-auto col-sm-8">
                         <input type="text" className="form-control " onChange={handleChange} required placeholder="Search Movie"/>                                     
@@ -36,7 +38,7 @@ const Header = () => {
                     </div>
                 </form>          
             </div> 
-        </section>
+        </div>
     )
 }
 

@@ -9,39 +9,37 @@ import {getMovies} from '../../actions/moviesActions'
 
 
 
-
-const PopularMovies = () => {
-
-    const popular = 'popular' 
-
-    const {moviesPopular, loading} = useSelector(state => ({
-        moviesPopular: state.movies.moviesPopular,
+const TopRatedMovies = () => {
+    const topRated = 'top_rated'
+   
+    const {moviesTopRated, loading} = useSelector(state => ({
+        moviesTopRated: state.movies.moviesTopRated,
         loading: state.movies.loading
     }))
 
     const dispatch = useDispatch()
     
     useEffect(() => {   
-        dispatch(getMovies(popular))   
+        dispatch(getMovies(topRated))   
       
         //eslint-disable-next-line   
     }, []) 
 
-    if(loading || !moviesPopular)return <h2>Loading...</h2>
+    if(loading || !moviesTopRated)return <h2>Loading...</h2>
 
 
     return(
         <Fragment>
             <Header />
             {/* TITLE */}
-            <Title titleName='Popular Movies' />
+            <Title titleName='Top Rated Movies' titleBg='danger'/>
             {/* TITLE */}
         {/* GRID     */} 
         <section className="container p-sm-3 mb-4">
             <div className="container ">
                 <div className="row justify-content-center " >                 
                 {                            
-                    !loading &&  moviesPopular.map( movie => 
+                    !loading &&  moviesTopRated.map( movie => 
                     <MoviesGrid key={movie.id} 
                     movieID={movie.id} posterPath={movie.poster_path} title={movie.title}/> ) 
                 }
@@ -49,19 +47,10 @@ const PopularMovies = () => {
             </div>  
         </section>
         {/* GRID  */} 
-        <PaginationMovies popular={popular} />
+        <PaginationMovies topRated={topRated} />
         </Fragment>
   
     )
 }
 
-export default PopularMovies
-
-// state --> movies --> moviesReducer {moviesPopular, loading}
-// const mapStateToProps = state => ({
-//     moviesPopular: state.movies.moviesPopular,
-//     loading: state.movies.loading,
-
-// });
-
-// export default connect(mapStateToProps, {getPopularMovies})(PopularMovies) 
+export default TopRatedMovies

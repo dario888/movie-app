@@ -7,6 +7,8 @@ import SearchMovies from './components/Movies/SearchMovies';
 import Navbar from './components/Navbar';
 import Details from './components/Movies/Details';
 import MyList from './components/Movies/MyList';
+import TopRatedMovies from './components/Movies/TopRatedMovies';
+import UpcomingMoves from './components/Movies/UpcomingMoves';
 import store from './store';
 
 import './App.css';
@@ -22,6 +24,8 @@ function App() {
       <Route exact path='/search_movies' component={SearchMovies}/>
       <Route exact path='/details' component={Details}/>
       <Route exact path='/my_list' component={MyList}/>
+      <Route exact path='/top_rated_movies' component={TopRatedMovies}/>
+      <Route exact path='/upcoming_movies' component={UpcomingMoves}/>
     </Switch>
     </Provider>
     </BrowserRouter>
