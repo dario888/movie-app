@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import {NavLink} from 'react-router-dom'
 
 
 
@@ -8,13 +7,12 @@ const Navbar = () => {
 
     const [open, setOpen] = useState(false)
     const change = open ? 'change' :  'nav-button'
-    // const myNavbar = open ? 'change' :  'nav-button'
 
     return (
    
-        <div className="container  mb-5">
+        <div className="container mb-5">
             <nav className="navbar navbar-expand-lg bg-dark fixed-top nav-menu ">
-                <span className="font-weight-bold movie-app">MOVIE-APP</span>
+                <a href="/" className="movieLink"><span className="font-weight-bold movie-app">MOVIE-APP</span></a>
                 <button className={`navbar-toggler ${change}`} type="button" 
                 data-toggle="collapse" data-target="#myNavbar" onClick={()=>setOpen(!open)}>
                     <div className="bg-light line1"></div>
@@ -23,31 +21,32 @@ const Navbar = () => {
                 </button>
                 <div className="collapse navbar-collapse bg-dark justify-content-end" id="myNavbar">
                     <ul className="navbar-nav"> 
-                        <li className="nav-item dropdown" data-toggle="dropdown">
-                            <NavLink className="nav-link menu-item text-light font-weight-bold px-2" 
-                            type="button" id="dropdownMenuButton" data-toggle="dropdown" exact to='/' >
-                                Home
-                            </NavLink>           
-                            <div className="dropdown-menu bg-dark " >
-                                <NavLink className="dropdown-item bg-dark text-light" exact to='/top_rated_movies'>Top Rated Movies</NavLink>
-                                <NavLink className="dropdown-item bg-dark text-light" exact to='/upcoming_movies'>Upcoming Movies</NavLink>
+                        <li className="nav-item dropdown" >
+                            <a  href="/" className="nav-link menu-item dropdown-toggle text-light px-2" 
+                             data-toggle="dropdown" >
+                                Movies
+                            </a>           
+                            <div className="dropdown-menu bg-dark" >
+                                <a className="dropdown-item bg-dark text-light"  href='/'>Poular Movies</a>
+                                <a className="dropdown-item bg-dark text-light"  href='/top_rated_movies'>Top Rated Movies</a>
+                                <a className="dropdown-item bg-dark text-light"  href='/upcoming_movies'>Upcoming Movies</a>
                             </div>
                         </li>      
                         <li className="nav-item">
-                            <NavLink className="nav-link menu-item text-light font-weight-bold px-2" exact to='/tvshows'>TV Shows</NavLink>                  
-                        </li>           
-                        <li className="nav-item">
-                            <NavLink className="nav-link menu-item text-light font-weight-bold px-2" exact to='/tvshows'>Genres</NavLink>                  
+                            <a className="nav-link menu-item text-light px-2"  href='/genres'>Genres</a>                  
                         </li>          
                         <li className="nav-item">
-                            <NavLink className="nav-link menu-item text-light font-weight-bold px-2" exact to='/my_list'>My List</NavLink>        
+                            <a className="nav-link menu-item text-light px-2"  href='/tvshows'>Artists</a>                  
+                        </li>           
+                        <li className="nav-item">
+                            <a className="nav-link menu-item text-light px-2"  href='/my_list'>My List</a>        
                         </li>           
                     </ul>
                 </div>
             </nav>
 
         </div>
-    
+      
     )
 }
 

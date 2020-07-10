@@ -6,12 +6,15 @@
 
 .movie-app{
     color: rgb(253, 165, 0);
-}
 
-/* Hamburger menu */
-.dropdown:hover>.dropdown-menu {
-    display: block;
 }
+.movieLink:hover{
+    text-decoration: none;
+}
+/* Hamburger menu */
+/* .dropdown:hover>.dropdown-menu {
+    display: block;
+} */
 
 .nav-menu{
     background: #343a40;
@@ -36,12 +39,15 @@
     height: 2px;
     margin: 5px;
     transition: all .4s;
-}
+} 
 
 /*Without this, clicking will make it sticky*/
 /* .dropdown>.dropdown-toggle:active {
       pointer-events: none;
   } */
+
+
+
 
 /* end navbar */
 /* header */
@@ -67,3 +73,13 @@
 }
 
 /* end Home */
+
+/* Genre */
+.genreLink{
+    font-size: 20px;
+}
+.active{
+    color: rebeccapurple
+}
+/* end Genre */
+

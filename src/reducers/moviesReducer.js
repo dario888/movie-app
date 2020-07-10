@@ -1,6 +1,6 @@
-import {GET_POPULAR_MOVIES, LOADING, SEARCH_MOVIE, SET_MOVIE_DETAILS, 
- ADD_LIST_ITEMS, REMOVE_LIST_ITEMS, CLEAR_LIST,  GET_TOP_RATED_MOVIES, 
- GET_UPCOMING_MOVIES, SEARCH_TERM} from '../types'
+import {GET_POPULAR_MOVIES, LOADING, SEARCH_MOVIE, SET_MOVIE_DETAILS, ADD_LIST_ITEMS, 
+REMOVE_LIST_ITEMS, CLEAR_LIST,  GET_TOP_RATED_MOVIES, GET_UPCOMING_MOVIES, SEARCH_TERM} from '../types'
+
 
 const initState = {
     moviesPopular: [],
@@ -98,3 +98,4 @@ export default (state=initState, action) => {
             return state;
     }
 }
+
