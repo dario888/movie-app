@@ -15,7 +15,6 @@ export default (state=initState, action) => {
             return{
                 ...state,
                 moviesDB: [...state.moviesDB, action.payload.results],
-                totalSearchResults: action.payload.total_results,
                 genresLoading: false
                 
             }

@@ -14,3 +14,10 @@ export const CLEAR_LIST = 'CLEAR_LIST'
 export const GET_MOVIESDB = 'GET_MOVIESDB'
 export const GENRES = 'GENRES'
 export const LOADING_GENRES = 'LOADING_GENRES'
+
+//-------------------ARTISTS ACTIONS--------------------
+export const GET_ARTISTS = 'GET_ARTISTS'
+export const SEARCH_ARTST = 'SEARCH_ARTST'
+export const SET_ARTIST_DETAILS = 'SET_ARTIST_DETAILS'
+export const SEARCH_ARTIST_TERM = 'SEARCH_ARTIST_TERM'
+export const LOADING_ARTISTS = 'LOADING_ARTISTS'

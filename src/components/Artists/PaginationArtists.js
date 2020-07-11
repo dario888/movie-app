@@ -1,39 +1,36 @@
 import React, {useState, useEffect} from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import {getMovies, searchMovies} from '../../actions/moviesActions'
+import { useDispatch } from 'react-redux';
+import {getArtists} from '../../actions/artistsAction'
+import  {useHistory} from 'react-router-dom'
 
 
 
 
-
-const PaginationMovies = ({popular, topRated, upcoming}) => {
+const PaginationArtists = () => {
   
   const [currentPage, setCurrentPage] = useState(1)  
 
-  const { searchTerm} = useSelector((state) => ({ searchTerm: state.movies.searchTerm }) )
 
   const dispatch = useDispatch()
-
+  const history = useHistory();
 
   // ComponentDidUpdate when currentPage is change
   useEffect(() => {
-    if(popular)dispatch(getMovies(popular, currentPage));
-    if(topRated)dispatch(getMovies(topRated, currentPage));
-    if(upcoming)dispatch(getMovies(upcoming, currentPage));
-    if(searchTerm)dispatch(searchMovies(searchTerm, currentPage))
+    dispatch(getArtists(currentPage));
 
     //eslint-disable-next-line  
   }, [currentPage])
 
 
   const pageNumbers = [];
-  
-
   for (let i = 1; i <= 10; i++) {
       pageNumbers.push(i);
   }
 
-
+  // const onclck = () => {
+  //   setCurrentPage(currentPage + 1)
+  //   history.push(`/${currentPage + 1}`)
+  // }
 
   return (
     
@@ -63,7 +60,7 @@ const PaginationMovies = ({popular, topRated, upcoming}) => {
 
           {
             currentPage < 10 ?
-            <li onClick={ () => setCurrentPage(currentPage + 1)}  className={`page-item`}>
+            <li onClick={ () => setCurrentPage(currentPage - 1)}  className={`page-item`}>
               <button className="page-link btn">Next</button>            
             </li> : 
             <li  className={`page-item disable`}>
@@ -76,11 +73,4 @@ const PaginationMovies = ({popular, topRated, upcoming}) => {
   )
 }
 
-export default PaginationMovies
-
-// const mapStateToProps = state => ({
-//   totalResults: state.movies.totalResults,
-
-// });
-
-// export default connect(mapStateToProps)(PaginationPopularMovies)
+export default PaginationArtists

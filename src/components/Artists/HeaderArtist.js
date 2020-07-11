@@ -1,6 +1,6 @@
 import React from 'react'
 import  {useHistory} from 'react-router-dom'
-import { searchMovies, setSearchTerm} from '../actions/moviesActions'
+import { searchArtist, setArtistSearchTerm} from '../../actions/artistsAction'
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -10,21 +10,20 @@ const Header = () => {
 
     const dispatch = useDispatch()
 
-    // SET SEARCHMOVIES IN REDUCER
+   
     const history = useHistory();
 
-    // const [searchTerm, setSearchTerm] = useState('');
     
-  const {searchTerm} = useSelector((state) => ({ searchTerm: state.movies.searchTerm }) )
+  const {searchTerm} = useSelector((state) => ({ searchTerm: state.artists.searchTerm }) )
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(searchMovies(searchTerm))
-        history.push('/search_movies')
+        dispatch(searchArtist(searchTerm))
+        history.push('/search_artist')
     }
 
-    const handleChange = (e) =>dispatch(setSearchTerm(e.target.value));
-    // setSearchTerm(e.target.value)
+    const handleChange = (e) =>dispatch(setArtistSearchTerm(e.target.value));
+ 
 
     return (
         <div className="container p-sm-4 headerForm">

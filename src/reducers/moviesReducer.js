@@ -9,7 +9,6 @@ const initState = {
     loading: false,
     searchTerm: '',
     searchMovie: null,
-    totalResults: 0, 
     totalSearchResults: 0,
     details: null, //{}
     listItems: JSON.parse(localStorage.getItem('listItems')) || []
@@ -25,7 +24,6 @@ export default (state=initState, action) => {
             return{
                 ...state,
                 moviesPopular: action.payload.results,
-                totalResults: action.payload.total_results,
                 loading: false
             }
             
@@ -33,7 +31,6 @@ export default (state=initState, action) => {
             return{
                 ...state,
                 moviesTopRated: action.payload.results,
-                totalResults: action.payload.total_results,
                 loading: false
             }           
 
@@ -41,7 +38,6 @@ export default (state=initState, action) => {
             return{
                 ...state,
                 moviesUpcoming: action.payload.results,
-                totalResults: action.payload.total_results,
                 loading: false
             }
             

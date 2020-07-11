@@ -11,6 +11,8 @@ import MyList from './components/Movies/MyList';
 import TopRatedMovies from './components/Movies/TopRatedMovies';
 import UpcomingMoves from './components/Movies/UpcomingMoves';
 import Artists from './components/Artists/Artists';
+import SearchArtists from './components/Artists/SearchArtists';
+import AritstsDetails from './components/Artists/AritstsDetails';
 import store from './store';
 
 import './App.css';
@@ -30,6 +32,8 @@ function App() {
       <Route exact path='/upcoming_movies' component={UpcomingMoves}/>
       <Route exact path='/genres' component={Genres}/>
       <Route exact path='/artists' component={Artists}/>
+      <Route exact path='/artist_details' component={AritstsDetails}/>
+      <Route exact path='/search_artist' component={SearchArtists}/>
     </Switch>
     </Provider>
     </BrowserRouter>

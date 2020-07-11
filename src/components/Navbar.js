@@ -36,7 +36,7 @@ const Navbar = () => {
                             <a className="nav-link menu-item text-light px-2"  href='/genres'>Genres</a>                  
                         </li>          
                         <li className="nav-item">
-                            <a className="nav-link menu-item text-light px-2"  href='/tvshows'>Artists</a>                  
+                            <a className="nav-link menu-item text-light px-2"  href='/artists'>Artists</a>                  
                         </li>           
                         <li className="nav-item">
                             <a className="nav-link menu-item text-light px-2"  href='/my_list'>My List</a>        

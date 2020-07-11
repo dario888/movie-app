@@ -27,9 +27,10 @@ const PaginationSearch = ({popular, topRated, upcoming}) => {
     //eslint-disable-next-line  
   }, [currentPage])
 
+  if(totalSearchResults < 20)return null;
 
   const pageNumbers = [];
-  const numberPages = totalSearchResults < 201 ? Math.ceil(totalSearchResults / 20) : Math.ceil(200 / 20)
+  const numberPages =  Math.ceil(totalSearchResults / 20) 
 
   for (let i = 1; i <= numberPages; i++) {
       pageNumbers.push(i);
