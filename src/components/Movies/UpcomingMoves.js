@@ -1,5 +1,6 @@
 import React, {useEffect, Fragment} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
+import  { useParams} from 'react-router-dom'
 
 import MoviesGrid from './MoviesGrid'
 import PaginationMovies from './PaginationMovies'
@@ -25,6 +26,17 @@ const UpcomingMoves = () => {
         //eslint-disable-next-line   
     }, []) 
 
+    //converting string param into number
+    let {num} = useParams();
+    num = !num ? 1 : Number.parseInt(num)
+
+    // ComponentDidUpdate when currentPage is change
+    useEffect(() => {
+        dispatch(getMovies(upcoming, num));
+
+        //eslint-disable-next-line  
+    }, [num])
+
     if(loading || !moviesUpcoming)return <h2>Loading...</h2>
 
 
@@ -47,7 +59,7 @@ const UpcomingMoves = () => {
             </div>  
         </section>
         {/* GRID  */} 
-        <PaginationMovies upcoming={upcoming} />
+        <PaginationMovies num={num} page={upcoming} />
         </Fragment>
   
     )

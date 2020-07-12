@@ -1,4 +1,4 @@
-import {LOADING_ARTISTS, GET_ARTISTS, SET_ARTIST_DETAILS, SEARCH_ARTST, SEARCH_ARTIST_TERM} from '../types'
+import {LOADING_ARTISTS, GET_ARTISTS, SET_ARTIST_DETAILS, SEARCH_ARTST, SEARCH_ARTIST_TERM,} from '../types'
 
 const initState = {
     artistsList: [],
@@ -6,7 +6,8 @@ const initState = {
     searchTerm: '',
     totalSearchResults: null,
     artistsLoading: false,
-    artistDetails: null
+    artistDetails: null,
+
 }
 
 
@@ -50,6 +51,7 @@ export default (state=initState, action) => {
                     ...state,
                     artistsLoading: true       
                 }
+              
             
     
         default:

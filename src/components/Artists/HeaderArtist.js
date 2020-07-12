@@ -1,6 +1,6 @@
 import React from 'react'
 import  {useHistory} from 'react-router-dom'
-import { searchArtist, setArtistSearchTerm} from '../../actions/artistsAction'
+import { artistSearch, setArtistSearchTerm} from '../../actions/artistsAction'
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -18,7 +18,7 @@ const Header = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(searchArtist(searchTerm))
+        dispatch(artistSearch(searchTerm))
         history.push('/search_artist')
     }
 
@@ -30,7 +30,7 @@ const Header = () => {
             <div className="my-auto">
                 <form className="form-inline" onSubmit={handleSubmit}>
                     <div className="input-group m-auto col-sm-8">
-                        <input type="text" className="form-control " onChange={handleChange} required placeholder="Search Movie"/>                                     
+                        <input type="text" className="form-control " onChange={handleChange} required placeholder="Search Artist"/>                                     
                         <div className="input-group-append">
                             <button type="submit" className="input-group-text btn btn-primary text-warning ">Search</button>
                         </div>

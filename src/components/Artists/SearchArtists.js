@@ -1,43 +1,58 @@
-import React, {Fragment} from 'react';  
-import { useSelector } from 'react-redux';
+import React, {Fragment, useEffect} from 'react';  
+import { useSelector, useDispatch } from 'react-redux';
+import  { useParams} from 'react-router-dom'
 
 import HeaderArtist from './HeaderArtist';      
 import PaginationSearchArtist from './PaginationSearchArtist';      
 import Title from '../Title';    
 import ArtistsGrid from './ArtistsGrid'
+import { artistSearch } from '../../actions/artistsAction'
 
 
 
 
 const SearchArtists = () => {
-    const {searchArtist, artistsLoading} = useSelector(state => ({
+    const {searchArtist, artistsLoading, searchTerm} = useSelector(state => ({
         searchArtist: state.artists.searchArtist,
+        searchTerm: state.artists.searchTerm,
         artistsLoading: state.artists.artistsLoading,
     
     }))
+
+    const dispatch = useDispatch();
     
-        if(artistsLoading || !searchArtist)return <h2>Loading...</h2>
+    let {num} = useParams();
+    num = !num ? 1 : Number.parseInt(num)
+
+    // ComponentDidUpdate when currentPage is change
+    useEffect(() => {
+        dispatch(artistSearch(searchTerm, num))
+
+    //eslint-disable-next-line  
+    }, [num])
     
-        return (
-            <Fragment>
-                <HeaderArtist />
-                <Title titleName='Search Artists' titleBg='dark' textColor='success' />
-                <section className="container p-sm-4 ">
-                <div className="container">
-                    <div className="row justify-content-center" >                 
-                    {
-                        !artistsLoading &&  searchArtist.map( artist =>
-                        <ArtistsGrid key={artist.id} 
-                        artistID={artist.id} profilePath={artist.profile_path} 
-                        artistName={artist.name} artistMovies={artist.known_for}/> )
+    if(artistsLoading || !searchArtist)return <h2>Loading...</h2>
     
-                    }
-                    </div>
-                </div> 
-            </section> 
-            <PaginationSearchArtist/>
-            </Fragment>
-        )
+    return (
+        <Fragment>
+            <HeaderArtist />
+            <Title titleName='Search Artists' titleBg='dark' textColor='success' />
+            <section className="container p-sm-4 ">
+            <div className="container">
+                <div className="row justify-content-center" >                 
+                {
+                    !artistsLoading &&  searchArtist.map( artist =>
+                    <ArtistsGrid key={artist.id} 
+                    artistID={artist.id} profilePath={artist.profile_path} 
+                    artistName={artist.name} artistMovies={artist.known_for}/> )
+
+                }
+                </div>
+            </div> 
+        </section> 
+        <PaginationSearchArtist num={num} />
+        </Fragment>
+    )
 }
 
 export default SearchArtists

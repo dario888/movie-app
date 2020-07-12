@@ -1,5 +1,6 @@
 import React, {useEffect, Fragment} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
+import  { useParams} from 'react-router-dom'
 
 import ArtistsGrid from './ArtistsGrid'
 import PaginationArtists from './PaginationArtists'
@@ -11,6 +12,7 @@ import {getArtists} from '../../actions/artistsAction'
 
 
 const Artists = () => {
+
 
     const {artistsList, artistsLoading} = useSelector(state => ({
         artistsList: state.artists.artistsList,
@@ -24,6 +26,17 @@ const Artists = () => {
       
         //eslint-disable-next-line   
     }, []) 
+
+  //converting string param into number
+  let {num} = useParams();
+  num = !num ? 1 : Number.parseInt(num)
+
+    // ComponentDidUpdate when currentPage is change
+  useEffect(() => {
+    dispatch(getArtists(num));
+
+    //eslint-disable-next-line  
+  }, [num])
 
     if(artistsLoading || !artistsList)return <h2>Loading...</h2>
 
@@ -48,10 +61,11 @@ const Artists = () => {
             </div>  
         </section>
         {/* GRID  */} 
-        <PaginationArtists/>
+        <PaginationArtists num={num} />
         </Fragment>
   
     )
+   
 }
 
 export default Artists

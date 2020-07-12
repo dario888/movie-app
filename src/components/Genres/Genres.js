@@ -14,7 +14,7 @@ const Genres = () => {
         genresLoading: state.genres.genresLoading
 
     }))
-
+    
     // console.log(moviesDB.flat());
     const newMoviesDB = moviesDB.flat();
     const dispatch = useDispatch();
@@ -29,7 +29,8 @@ const Genres = () => {
        
         //eslint-disable-next-line
     }, [])
- 
+
+
 
     if(genresLoading || !genresList)return <h2>Loading...</h2>
 

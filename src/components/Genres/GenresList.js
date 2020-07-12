@@ -3,6 +3,8 @@ import MoviesGrid from '../Movies/MoviesGrid'
 import PaginationGenres from './PaginationGenres'
 
 
+
+
 const GenresList = ({genresList, newMoviesDB}) => {
 
 
@@ -30,10 +32,10 @@ const GenresList = ({genresList, newMoviesDB}) => {
                     let active = genreID === genre.id ? 'active' : ''
                     return (
                         <li className="nav-item p-2 " key={genre.id}>
-                            <a href="#1" className={`nav-link genreLink p-0 ${active}`} 
+                            <button  className={`nav-link genreLink p-1 ${active}`} 
                             onClick={() => setGenreID(genre.id)} >
                             {genre.name}
-                            </a>
+                            </button>
                         </li>
                     )
                 } )

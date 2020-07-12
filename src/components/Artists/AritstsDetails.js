@@ -13,7 +13,7 @@ const AritstsDetails = () => {
 
     const history = useHistory();
     // console.log(history);
-    const goBackHistory = () => history.goBack('/')
+    const goBackHistory = () => history.goBack()
     
     const urlImage = process.env.REACT_APP_IMG;
 

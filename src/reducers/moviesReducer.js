@@ -10,6 +10,7 @@ const initState = {
     searchTerm: '',
     searchMovie: null,
     totalSearchResults: 0,
+    totalUpcomingResults: 0,
     details: null, //{}
     listItems: JSON.parse(localStorage.getItem('listItems')) || []
 
@@ -38,6 +39,7 @@ export default (state=initState, action) => {
             return{
                 ...state,
                 moviesUpcoming: action.payload.results,
+                totalUpcomingResults: action.payload.total_results,
                 loading: false
             }
             

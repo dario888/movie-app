@@ -1,25 +1,12 @@
-import React, {useState, useEffect} from 'react'
-import { useDispatch } from 'react-redux';
-import {getArtists} from '../../actions/artistsAction'
-import  {useHistory} from 'react-router-dom'
+import React from 'react'
+import  { useHistory } from 'react-router-dom'
 
 
 
 
-const PaginationArtists = () => {
+const PaginationArtists = ({num}) => {
   
-  const [currentPage, setCurrentPage] = useState(1)  
-
-
-  const dispatch = useDispatch()
   const history = useHistory();
-
-  // ComponentDidUpdate when currentPage is change
-  useEffect(() => {
-    dispatch(getArtists(currentPage));
-
-    //eslint-disable-next-line  
-  }, [currentPage])
 
 
   const pageNumbers = [];
@@ -27,10 +14,7 @@ const PaginationArtists = () => {
       pageNumbers.push(i);
   }
 
-  // const onclck = () => {
-  //   setCurrentPage(currentPage + 1)
-  //   history.push(`/${currentPage + 1}`)
-  // }
+ 
 
   return (
     
@@ -38,29 +22,30 @@ const PaginationArtists = () => {
       <div className="row justify-content-center">
         <ul className="pagination">
           {
-            currentPage > 1 ?
-            <li onClick={ () => setCurrentPage(currentPage - 1) }  className={`page-item `}>
-                  <span className="page-link btn">Prev</span>            
+            num  > 1 ?
+            <li onClick={() => history.push(`/artists/${num - 1}`) }  className={`page-item `}>
+                  <button className="page-link btn">Prev</button>            
             </li> : 
             <li className={`page-item disable`}>
-              <span className="page-link btn">Prev</span>            
+              <button className="page-link btn">Prev</button>            
             </li>
           }
 
           {
             pageNumbers.map(number => {              
-              let active = currentPage === number ? 'active' : ''
+              let active = num  === number ? 'active' : ''
                 return (
-                  <li onClick={() => setCurrentPage(number)} key={number} className={`page-item ${active}`}>
-                      <span className="page-link btn">{number}</span>            
+                  <li  onClick={()=> history.push(`/artists/${number}`)} key={number} 
+                  className={`page-item ${active}`}>
+                      <button className="page-link btn">{number}</button>            
                   </li>
                 )
             })
           }
 
           {
-            currentPage < 10 ?
-            <li onClick={ () => setCurrentPage(currentPage - 1)}  className={`page-item`}>
+            num < 10 ?
+            <li onClick={ () => history.push(`/artists/${num + 1}`) }  className={`page-item`}>
               <button className="page-link btn">Next</button>            
             </li> : 
             <li  className={`page-item disable`}>

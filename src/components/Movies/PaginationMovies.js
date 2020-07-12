@@ -1,35 +1,23 @@
-import React, {useState, useEffect} from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import {getMovies, searchMovies} from '../../actions/moviesActions'
+import React from 'react'
+import { useSelector, } from 'react-redux';
+import  { useHistory } from 'react-router-dom'
 
 
 
+const PaginationMovies = ({num, page}) => { 
 
+  const { totalUpcomingResults} = useSelector((state) => ({ 
+    totalUpcomingResults: state.movies.totalUpcomingResults 
 
-const PaginationMovies = ({popular, topRated, upcoming}) => {
-  
-  const [currentPage, setCurrentPage] = useState(1)  
+  }) )
 
-  const { searchTerm} = useSelector((state) => ({ searchTerm: state.movies.searchTerm }) )
-
-  const dispatch = useDispatch()
-
-
-  // ComponentDidUpdate when currentPage is change
-  useEffect(() => {
-    if(popular)dispatch(getMovies(popular, currentPage));
-    if(topRated)dispatch(getMovies(topRated, currentPage));
-    if(upcoming)dispatch(getMovies(upcoming, currentPage));
-    if(searchTerm)dispatch(searchMovies(searchTerm, currentPage))
-
-    //eslint-disable-next-line  
-  }, [currentPage])
+  const history = useHistory();
 
 
   const pageNumbers = [];
   
-
-  for (let i = 1; i <= 10; i++) {
+  const pagiPages = totalUpcomingResults ? Math.ceil(totalUpcomingResults / 20) : 10
+  for (let i = 1; i <= pagiPages; i++) {
       pageNumbers.push(i);
   }
 
@@ -41,8 +29,8 @@ const PaginationMovies = ({popular, topRated, upcoming}) => {
       <div className="row justify-content-center">
         <ul className="pagination">
           {
-            currentPage > 1 ?
-            <li onClick={ () => setCurrentPage(currentPage - 1) }  className={`page-item `}>
+            num > 1 ?
+            <li onClick={ () => history.push(`/${page}/${num - 1}`)}  className={`page-item `}>
                   <span className="page-link btn">Prev</span>            
             </li> : 
             <li className={`page-item disable`}>
@@ -52,9 +40,9 @@ const PaginationMovies = ({popular, topRated, upcoming}) => {
 
           {
             pageNumbers.map(number => {              
-              let active = currentPage === number ? 'active' : ''
+              let active = num === number ? 'active' : ''
                 return (
-                  <li onClick={() => setCurrentPage(number)} key={number} className={`page-item ${active}`}>
+                  <li onClick={() => history.push(`/${page}/${number}`) } key={number} className={`page-item ${active}`}>
                       <span className="page-link btn">{number}</span>            
                   </li>
                 )
@@ -62,8 +50,8 @@ const PaginationMovies = ({popular, topRated, upcoming}) => {
           }
 
           {
-            currentPage < 10 ?
-            <li onClick={ () => setCurrentPage(currentPage + 1)}  className={`page-item`}>
+            num < 10 ?
+            <li onClick={ () => history.push(`/${page}/${num + 1}`)}  className={`page-item`}>
               <button className="page-link btn">Next</button>            
             </li> : 
             <li  className={`page-item disable`}>

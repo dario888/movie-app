@@ -1,21 +1,36 @@
-import React, {Fragment} from 'react';  
-import { useSelector } from 'react-redux';
+import React, {Fragment, useEffect} from 'react';  
+import { useSelector, useDispatch } from 'react-redux';
+import  { useParams} from 'react-router-dom'
 
 import PaginationSearch from './PaginationSearch'
 import Header from '../Header';   
 import Title from '../Title';    
 import MoviesGrid from './MoviesGrid'
-
+import { searchMovies } from '../../actions/moviesActions'
 
 
 
 const SearchMovies = () => {
 
-   const {searchMovie, loading} = useSelector(state => ({
+   const {searchMovie, loading, searchTerm} = useSelector(state => ({
     searchMovie: state.movies.searchMovie,
+    searchTerm: state.movies.searchTerm,
     loading: state.movies.loading,
 
-}))
+    }))
+
+    const dispatch = useDispatch();
+
+    let {num} = useParams();
+    num = !num ?  1 : Number.parseInt(num)
+
+    // ComponentDidUpdate when currentPage is change
+    useEffect(() => {
+  
+        dispatch(searchMovies(searchTerm, num))
+
+    //eslint-disable-next-line  
+    }, [num])
 
     if(loading || !searchMovie)return <h2>Loading...</h2>
 
@@ -35,7 +50,7 @@ const SearchMovies = () => {
                 </div>
             </div> 
         </section> 
-        <PaginationSearch />
+        <PaginationSearch num={num}/>
         </Fragment>
     )
 }

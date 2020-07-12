@@ -1,4 +1,4 @@
-import {LOADING_ARTISTS, GET_ARTISTS, SET_ARTIST_DETAILS, SEARCH_ARTST, SEARCH_ARTIST_TERM} from '../types'
+import {LOADING_ARTISTS, GET_ARTISTS, SET_ARTIST_DETAILS, SEARCH_ARTST, SEARCH_ARTIST_TERM,} from '../types'
 import axios from 'axios'
 
 const apiKey = process.env.REACT_APP_KEY
@@ -18,13 +18,13 @@ export const getArtists = (pageNumber=1) => async(dispatch) =>{
     }
 } 
 
-export const searchArtist = (searchTerm, pageNumber=1) => async(dispatch) =>{
+export const artistSearch = (searchTerm, pageNumber=1) => async(dispatch) =>{
     
     try {
         setArtistLoading(); 
        const res = await axios(`${apiURL}/search/person?api_key=${apiKey}&language=en-US&query=${searchTerm}&page=${pageNumber}`)
        dispatch({type: SEARCH_ARTST, payload: res.data })
-    //    console.log(res.data); //[{},{}]
+       console.log(res.data); //[{},{}]
 
     } catch (error) {
         console.log(error);
@@ -47,4 +47,6 @@ export const artistDetails = (artistID) => async(dispatch) =>{
 
 //SET LOADING
 export const setArtistLoading = () => ({type: LOADING_ARTISTS})
+
 export const setArtistSearchTerm = (searchTerm) => ({type: SEARCH_ARTIST_TERM, payload: searchTerm})
+

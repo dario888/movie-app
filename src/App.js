@@ -16,6 +16,7 @@ import AritstsDetails from './components/Artists/AritstsDetails';
 import store from './store';
 
 import './App.css';
+import Home from './components/Home';
 
 
 function App() {
@@ -24,16 +25,17 @@ function App() {
     <Provider store={store}>
     <Navbar />
     <Switch>
-      <Route exact path='/' component={PopularMovies}/>
-      <Route exact path='/search_movies' component={SearchMovies}/>
+      <Route exact path='/' component={Home}/>
+      <Route exact path='/popular/:num?' component={PopularMovies}/>
+      <Route exact path='/search_movies/:num?' component={SearchMovies}/>
       <Route exact path='/details' component={Details}/>
       <Route exact path='/my_list' component={MyList}/>
-      <Route exact path='/top_rated_movies' component={TopRatedMovies}/>
-      <Route exact path='/upcoming_movies' component={UpcomingMoves}/>
+      <Route exact path='/top_rated/:num?' component={TopRatedMovies}/>
+      <Route exact path='/upcoming/:num?' component={UpcomingMoves}/>
       <Route exact path='/genres' component={Genres}/>
-      <Route exact path='/artists' component={Artists}/>
+      <Route exact path='/artists/:num?' component={Artists}/>
       <Route exact path='/artist_details' component={AritstsDetails}/>
-      <Route exact path='/search_artist' component={SearchArtists}/>
+      <Route exact path='/search_artist/:num?' component={SearchArtists}/>
     </Switch>
     </Provider>
     </BrowserRouter>

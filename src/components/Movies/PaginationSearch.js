@@ -1,31 +1,17 @@
-import React, {useState, useEffect} from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import { searchMovies } from '../../actions/moviesActions'
+import React from 'react'
+import { useSelector } from 'react-redux';
+import  { useHistory } from 'react-router-dom'
 
 
 
+const PaginationSearch = ({ num }) => {
 
-
-const PaginationSearch = ({popular, topRated, upcoming}) => {
-  
-  const [currentPage, setCurrentPage] = useState(1)  
-
-  const {totalSearchResults, searchTerm} = useSelector((state) => ({ 
+  const {totalSearchResults} = useSelector((state) => ({ 
     totalSearchResults: state.movies.totalSearchResults,
-    searchTerm: state.movies.searchTerm
 
-   }) )
+  }) )
 
-  const dispatch = useDispatch()
-
-
-  // ComponentDidUpdate when currentPage is change
-  useEffect(() => {
-  
-    dispatch(searchMovies(searchTerm, currentPage))
-
-    //eslint-disable-next-line  
-  }, [currentPage])
+  const history = useHistory()
 
   if(totalSearchResults < 20)return null;
 
@@ -44,8 +30,8 @@ const PaginationSearch = ({popular, topRated, upcoming}) => {
       <div className="row justify-content-center">
         <ul className="pagination">
           {
-            currentPage > 1 ?
-            <li onClick={ () => setCurrentPage(currentPage - 1) }  className={`page-item `}>
+            num > 1 ?
+            <li onClick={ () =>  history.push(`/search_movies/${num - 1}`) }  className={`page-item `}>
                   <span className="page-link btn">Prev</span>            
             </li> : 
             <li className={`page-item disable`}>
@@ -55,9 +41,9 @@ const PaginationSearch = ({popular, topRated, upcoming}) => {
 
           {
             pageNumbers.map(number => {              
-              let active = currentPage === number ? 'active' : ''
+              let active = num === number ? 'active' : ''
                 return (
-                  <li onClick={() => setCurrentPage(number)} key={number} className={`page-item ${active}`}>
+                  <li onClick={() => history.push(`/search_movies/${number}`) } key={number} className={`page-item ${active}`}>
                       <span className="page-link btn">{number}</span>            
                   </li>
                 )
@@ -65,8 +51,8 @@ const PaginationSearch = ({popular, topRated, upcoming}) => {
           }
 
           {
-            currentPage < numberPages ?
-            <li onClick={ () => setCurrentPage(currentPage + 1)}  className={`page-item`}>
+            num < numberPages ?
+            <li onClick={ () => history.push(`/search_movies/${num + 1}`) }  className={`page-item`}>
               <button className="page-link btn">Next</button>            
             </li> : 
             <li  className={`page-item disable`}>

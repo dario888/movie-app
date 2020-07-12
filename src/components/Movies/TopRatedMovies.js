@@ -1,5 +1,6 @@
 import React, {useEffect, Fragment} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
+import  { useParams} from 'react-router-dom'
 
 import MoviesGrid from './MoviesGrid'
 import PaginationMovies from './PaginationMovies'
@@ -25,6 +26,18 @@ const TopRatedMovies = () => {
         //eslint-disable-next-line   
     }, []) 
 
+
+    //converting string param into number
+    let {num} = useParams();
+    num = !num ? 1 : Number.parseInt(num)
+
+    // ComponentDidUpdate when currentPage is change
+    useEffect(() => {
+        dispatch(getMovies(topRated, num));
+
+        //eslint-disable-next-line  
+    }, [num])
+
     if(loading || !moviesTopRated)return <h2>Loading...</h2>
 
 
@@ -47,7 +60,7 @@ const TopRatedMovies = () => {
             </div>  
         </section>
         {/* GRID  */} 
-        <PaginationMovies topRated={topRated} />
+        <PaginationMovies num={num} page={topRated} />
         </Fragment>
   
     )

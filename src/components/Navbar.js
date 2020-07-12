@@ -27,16 +27,16 @@ const Navbar = () => {
                                 Movies
                             </a>           
                             <div className="dropdown-menu bg-dark" >
-                                <a className="dropdown-item bg-dark text-light"  href='/'>Poular Movies</a>
-                                <a className="dropdown-item bg-dark text-light"  href='/top_rated_movies'>Top Rated Movies</a>
-                                <a className="dropdown-item bg-dark text-light"  href='/upcoming_movies'>Upcoming Movies</a>
+                                <a className="dropdown-item bg-dark text-light"  href='/popular/1'>Poular Movies</a>
+                                <a className="dropdown-item bg-dark text-light"  href='/top_rated/1'>Top Rated Movies</a>
+                                <a className="dropdown-item bg-dark text-light"  href='/upcoming/1'>Upcoming Movies</a>
                             </div>
                         </li>      
                         <li className="nav-item">
                             <a className="nav-link menu-item text-light px-2"  href='/genres'>Genres</a>                  
                         </li>          
                         <li className="nav-item">
-                            <a className="nav-link menu-item text-light px-2"  href='/artists'>Artists</a>                  
+                            <a className="nav-link menu-item text-light px-2"  href='/artists/1'>Artists</a>                  
                         </li>           
                         <li className="nav-item">
                             <a className="nav-link menu-item text-light px-2"  href='/my_list'>My List</a>        
