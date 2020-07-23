@@ -2,9 +2,9 @@ import React, {Fragment, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import  { useParams} from 'react-router-dom'
 
-import HeaderArtist from './HeaderArtist';      
 import PaginationSearchArtist from './PaginationSearchArtist';      
-import Title from '../Title';    
+import HeaderArtist from './HeaderArtist';      
+// import Title from '../Title';     
 import ArtistsGrid from './ArtistsGrid'
 import { artistSearch } from '../../actions/artistsAction'
 
@@ -35,8 +35,8 @@ const SearchArtists = () => {
     
     return (
         <Fragment>
-            <HeaderArtist />
-            <Title titleName='Search Artists' titleBg='dark' textColor='success' />
+            <HeaderArtist titleName='Search Artists'  textColor='success' />
+            {/* <Title titleName='Search Artists' titleBg='info' textColor='success' /> */}
             <section className="container p-sm-4 ">
             <div className="container">
                 <div className="row justify-content-center" >                 

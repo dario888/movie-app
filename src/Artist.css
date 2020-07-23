@@ -1,0 +1,36 @@
+/* ========================================ARTISTS CSS========================================== */
+/* header */
+.artist-header {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    height: 50vh;
+    
+  
+}
+
+/* end of  header*/
+
+/* search bar */
+
+.btnSearchArtist {
+    display: flex;
+    align-items: center;
+    padding: .375rem .75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #1A5276;
+    border: none;
+    border-radius: .25rem;
+}
+
+.btnSearchArtist:hover {
+    background-color: #3498DB ;
+}
+
+/* end of search bar */

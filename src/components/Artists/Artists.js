@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import  { useParams} from 'react-router-dom'
 
 import ArtistsGrid from './ArtistsGrid'
-import PaginationArtists from './PaginationArtists'
+import PaginationArtists from './PaginationArtists'                 
+// import Title from '../Title';                    
 import HeaderArtist from './HeaderArtist';                    
-import Title from '../Title';                    
 import {getArtists} from '../../actions/artistsAction'
 
 
@@ -43,9 +43,9 @@ const Artists = () => {
 
     return(
         <Fragment>
-            <HeaderArtist />
+            <HeaderArtist titleName='Popular Artists' textColor='success'/>
             {/* TITLE */}
-            <Title titleName='Popular Artists' titleBg='success' textColor='light'/>
+            {/* <Title titleName='Popular Artists' titleBg='bg-warning' textColor='success'/> */}
             {/* TITLE */}
         {/* GRID     */} 
         <section className="container p-sm-3 mb-4">

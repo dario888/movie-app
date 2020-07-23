@@ -1,8 +1,9 @@
-import React, {useEffect, Fragment} from 'react'
+import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import  {useHistory} from 'react-router-dom'
 import {removeListItems, clearList} from '../../actions/moviesActions';
 import Title from '../Title';   
+  
 
 
 
@@ -28,49 +29,49 @@ const MyList = () => {
      
 
     return (
-        <Fragment>
-        <Title titleName='My List' titleBg='info'/>
-        <div className="container p-sm-3 mb-4">
-            <div className="row btn btn-warning mb-4" >                 
-                <i className="fas fa-arrow-left"></i>
-                <span className="text-dark font-weight-bold ml-2" onClick={goBackHistory}>
-                    Go Back
-                </span>                
-            </div>
-                         
-            <div className="container mb-2">
-                <table className="table table-dark mb-2" >
-                    <thead>
-                        <tr>                  
-                            <th scope="col">Title</th>
-                            <th scope="col">Runtime</th>
-                            <th scope="col">Remove From List</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            listItems.map(item => 
-                            <tr key={item.id}>                      
-                                <td>{item.title}</td>
-                                <td>{item.runtime + ' min'}</td>
-                                <td><span onClick={() => dispatch( removeListItems(item.id) )} 
-                                className="btn btn-danger" >
-                                    Remove
-                                </span></td>
-                            </tr> )
-                            
-                        }
-                    </tbody>
-                </table>
-                <div className="row justify-content-end px-3">
-                    <button onClick={() => dispatch( clearList() )}  className="btn btn-info">
-                        Clear
-                    </button>
+        <div className="myList">   
+         <Title titleName='My List' titleBg='title-bg'/> 
+            <div className="container p-sm-1">
+                <div className="row btn btn-warning mb-4 ml-3" >                 
+                    <i className="fas fa-arrow-left"></i>
+                    <span className="text-dark font-weight-bold ml-2" onClick={goBackHistory}>
+                        Go Back
+                    </span>                
                 </div>
+                            
+                <div className="container ">
+                    <table className="table text-light" >
+                        <thead className="tbl-head">
+                            <tr>                  
+                                <th scope="col">Title</th>
+                                <th scope="col">Runtime</th>
+                                <th scope="col">Remove From List</th>
+                            </tr>
+                        </thead>
+                        <tbody className="tbl-body">
+                            {
+                                listItems.map(item => 
+                                <tr key={item.id}>                      
+                                    <td>{item.title}</td>
+                                    <td>{item.runtime + ' min'}</td>
+                                    <td>
+                                    <span onClick={() => dispatch( removeListItems(item.id) )} 
+                                    className="button" >
+                                        Remove
+                                    </span></td>
+                                </tr> )
+                                
+                            }
+                        </tbody>
+                    </table>
+                    <div className="row justify-content-end px-3 mb-4">
+                        <button onClick={() => dispatch( clearList() )} className="clear">
+                            Clear
+                        </button>
+                    </div>
+                </div>     
             </div>
-        
         </div>
-        </Fragment>
     )
 }
 

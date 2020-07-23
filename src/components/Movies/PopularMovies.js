@@ -4,8 +4,10 @@ import  { useParams} from 'react-router-dom'
 
 import MoviesGrid from './MoviesGrid'
 import PaginationMovies from './PaginationMovies'
-import Header from '../Header';                    
-import Title from '../Title';                    
+// import SearchBar from '../SearchBar';                    
+// import Title from '../Title';       
+ import Header from '../Header';       
+
 import {getMovies} from '../../actions/moviesActions'
 
 
@@ -19,6 +21,7 @@ const PopularMovies = () => {
         moviesPopular: state.movies.moviesPopular,
         loading: state.movies.loading
     }))
+    // console.log('POPULAR MOVIES');
 
     const dispatch = useDispatch()
     
@@ -35,21 +38,20 @@ const PopularMovies = () => {
     // ComponentDidUpdate when currentPage is change
     useEffect(() => {
     dispatch(getMovies(popular, num));
-  
 
     //eslint-disable-next-line  
   }, [num])
 
+    // const memoPagination = useMemo(() => <PaginationMovies num={num} page={popular}/>,[num])
 
     if(loading || !moviesPopular)return <h2>Loading...</h2>
 
 
     return(
         <Fragment>
-            <Header />
-            {/* TITLE */}
-            <Title titleName='Popular Movies' />
-            {/* TITLE */}
+            <Header titleName='Popular Movies'/>
+            {/* <SearchBar />       */}
+            {/* <Title titleName='Popular Movies' />          */}
         {/* GRID     */} 
         <section className="container p-sm-3 mb-4">
             <div className="container ">
@@ -64,6 +66,7 @@ const PopularMovies = () => {
         </section>
         {/* GRID  */} 
         <PaginationMovies num={num} page={popular}/>
+        {/* {memoPagination} */}
         </Fragment>
   
     )

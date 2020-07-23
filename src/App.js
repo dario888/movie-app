@@ -16,10 +16,12 @@ import AritstsDetails from './components/Artists/AritstsDetails';
 import store from './store';
 
 import './App.css';
+import './Artist.css';
 import Home from './components/Home';
 
 
 function App() {
+
   return (
     <BrowserRouter>
     <Provider store={store}>

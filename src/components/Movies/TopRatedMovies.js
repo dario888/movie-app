@@ -4,8 +4,10 @@ import  { useParams} from 'react-router-dom'
 
 import MoviesGrid from './MoviesGrid'
 import PaginationMovies from './PaginationMovies'
-import Header from '../Header';                    
-import Title from '../Title';                    
+// import SearchBar from '../SearchBar';                    
+// import Title from '../Title';         
+import Header from '../Header';         
+
 import {getMovies} from '../../actions/moviesActions'
 
 
@@ -26,7 +28,7 @@ const TopRatedMovies = () => {
         //eslint-disable-next-line   
     }, []) 
 
-
+    // console.log('TopRatedMovies MOVIES');
     //converting string param into number
     let {num} = useParams();
     num = !num ? 1 : Number.parseInt(num)
@@ -43,9 +45,10 @@ const TopRatedMovies = () => {
 
     return(
         <Fragment>
-            <Header />
+            <Header titleName='Top Rated Movies' headerBg='danger' btnSearchBg='btn-toprated' />
+            {/* <SearchBar /> */}
             {/* TITLE */}
-            <Title titleName='Top Rated Movies' titleBg='danger'/>
+            {/* <Title titleName='Top Rated Movies' titleBg='danger'/> */}
             {/* TITLE */}
         {/* GRID     */} 
         <section className="container p-sm-3 mb-4">

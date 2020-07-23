@@ -4,8 +4,9 @@ import  { useParams} from 'react-router-dom'
 
 import MoviesGrid from './MoviesGrid'
 import PaginationMovies from './PaginationMovies'
-import Header from '../Header';                    
-import Title from '../Title';                    
+// import SearchBar from '../SearchBar';                    
+// import Title from '../Title';                    
+import Header from '../Header';                              
 import {getMovies} from '../../actions/moviesActions'
 
 
@@ -26,6 +27,7 @@ const UpcomingMoves = () => {
         //eslint-disable-next-line   
     }, []) 
 
+    // console.log('UpcomingMoves MOVIES');
     //converting string param into number
     let {num} = useParams();
     num = !num ? 1 : Number.parseInt(num)
@@ -42,9 +44,10 @@ const UpcomingMoves = () => {
 
     return(
         <Fragment>
-            <Header />
+            <Header titleName='Upcoming Movies' headerBg='success' btnSearchBg='btn-upcoming'/>
+            {/* <SearchBar /> */}
             {/* TITLE */}
-            <Title titleName='Upcoming Movies' titleBg='success'  />
+            {/* <Title titleName='Upcoming Movies' titleBg='success'  /> */}
             {/* TITLE */}
         {/* GRID     */} 
         <section className="container p-sm-3 mb-4">

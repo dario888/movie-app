@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import  { useParams} from 'react-router-dom'
 
 import PaginationSearch from './PaginationSearch'
-import Header from '../Header';   
-import Title from '../Title';    
+// import SearchBar from '../SearchBar';   
+// import Title from '../Title';    
+import Header from '../Header';    
 import MoviesGrid from './MoviesGrid'
 import { searchMovies } from '../../actions/moviesActions'
 
@@ -26,18 +27,19 @@ const SearchMovies = () => {
 
     // ComponentDidUpdate when currentPage is change
     useEffect(() => {
-  
         dispatch(searchMovies(searchTerm, num))
 
     //eslint-disable-next-line  
     }, [num])
 
+    // console.log('SearchMovies MOVIES');
     if(loading || !searchMovie)return <h2>Loading...</h2>
 
     return (
         <Fragment>
-            <Header />
-            <Title titleName='Search Movies' titleBg='dark' textColor='warning' />
+            <Header titleName='Search Movies' textColor='warning' headerBg='dark' />
+            {/* <SearchBar />
+            <Title titleName='Search Movies' titleBg='dark' textColor='warning' /> */}
             <section className="container p-sm-4 ">
             <div className="container">
                 <div className="row justify-content-center" >                 

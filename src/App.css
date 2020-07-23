@@ -1,25 +1,39 @@
-/* navbar */
-.navbar{
-    height: 70px;
+
+html, body{
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ======================================Movies=============================================== */
+/* Navbar */
+.nav-menu{
+    background: black;
+    height: 80px;
     font-size: 20px;
+    transition: all .7s;
+}
+
+.navbar-collapse {
+    background: rgba(0, 0, 0, 0.9);
 }
 
 .movie-app{
     color: rgb(253, 165, 0);
-
+    padding: 25px;
 }
+
+.navbar-nav:last-child{
+    margin-right: 25px;
+}
+
 .movieLink:hover{
     text-decoration: none;
-}
-/* Hamburger menu */
-/* .dropdown:hover>.dropdown-menu {
-    display: block;
-} */
-
-.nav-menu{
-    background: #343a40;
-    padding: 30px;
-    transition: all .7s;
 }
 
 .change .line1{
@@ -41,30 +55,132 @@
     transition: all .4s;
 } 
 
-/*Without this, clicking will make it sticky*/
-/* .dropdown>.dropdown-toggle:active {
-      pointer-events: none;
-  } */
-
-
-
-
 /* end navbar */
+
 /* header */
-.headerForm {
-    margin-top: 80px;
+.movie-header {
+    display: flex;
+    flex-direction: column;
+    height: 55vh;
+  
+
 }
+
+/* Searchbar */
+.searchBar {
+    margin-top: 85px;
+    margin-bottom: 20px;
+}
+
+
+.btn-search {
+    display: flex;
+    align-items: center;
+    padding: .375rem .75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #d4ac0d;
+    border: none;
+    border-radius: .25rem;
+}
+
+.btn-search:hover{
+    background: #D35400;
+}
+
+
+
+/* -------------------------------------- */
+.btn-toprated{
+    background-color: #CE1313  ;
+    color: #fff;
+}
+.btn-toprated:hover{
+    background-color: #922B21 ;
+}
+
+.btn-upcoming{
+    background-color: green;
+    color: #fff;
+}
+
+.btn-upcoming:hover {
+    background-color: #145A32 ;
+}
+
+
+/* end Searchbar */
 /* end header */
 
 /* Title */
-.title {
+.title h1{
     font-family: 'Bangers', cursive;
     font-size: 6rem;
+    line-height: 1;
+    text-shadow: 3px 3px #fff;
+}
+
+.title-bg{
+    background: teal;
 }
 
 /* end Title */
 
-/*  Home */
+/* My list */
+.myList {
+    margin-top: 80px;
+    background: #17A589 ;
+    height: 100vh;
+
+}
+
+.table{
+    border:2px #fff solid;
+}
+
+.tbl-head {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+ .tbl-body tr:nth-child(odd){
+    background: rgba(0, 0, 0, 0.5);
+ } 
+.tbl-body tr:nth-child(even){
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.button{
+    background-color: #D61212 ;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.clear{
+    background-color: #0B5345  ;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border-width: 0;
+    border-style: none;
+    border: none;
+    color: #fff;
+  
+}
+
+.button:hover {
+    background-color: #922B21 ;
+}
+.clear:hover {
+    background-color: #177F5D ;
+}
+/* end My list */
+
+
 .card-img-top{
     width:100%;
     height: 320px;
@@ -72,9 +188,14 @@
   
 }
 
+/* =======================================Home============================================== */
+
 /* end Home */
 
-/* Genre */
+
+
+/* ========================================Genre ============================================= */
+
 .genreLink{
     font-size: 20px;
     border: none;
@@ -84,4 +205,10 @@
     color: rebeccapurple
 }
 /* end Genre */
+
+/* =====================================Footer================================================ */
+
+
+
+
 

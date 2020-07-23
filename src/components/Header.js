@@ -1,43 +1,20 @@
 import React from 'react'
-import  {useHistory} from 'react-router-dom'
-import { searchMovies, setSearchTerm} from '../actions/moviesActions'
-import { useDispatch, useSelector } from 'react-redux';
+import SearchBar from './SearchBar'
+import Title from './Title'
 
 
 
 
-const Header = () => {
+const Header = ({headerBg, titleName,  textColor, btnSearchBg}) => {
 
-    const dispatch = useDispatch()
+    let bgColor = headerBg ||'warning'
+    let color = textColor ||'dark'
 
-    // SET SEARCHMOVIES IN REDUCER
-    const history = useHistory();
-
-    // const [searchTerm, setSearchTerm] = useState('');
-    
-  const {searchTerm} = useSelector((state) => ({ searchTerm: state.movies.searchTerm }) )
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        dispatch(searchMovies(searchTerm))
-        history.push('/search_movies')
-    }
-
-    const handleChange = (e) =>dispatch(setSearchTerm(e.target.value));
-    // setSearchTerm(e.target.value)
 
     return (
-        <div className="container p-sm-4 headerForm">
-            <div className="my-auto">
-                <form className="form-inline" onSubmit={handleSubmit}>
-                    <div className="input-group m-auto col-sm-8">
-                        <input type="text" className="form-control " onChange={handleChange} required placeholder="Search Movie"/>                                     
-                        <div className="input-group-append">
-                            <button type="submit" className="input-group-text btn btn-primary text-warning ">Search</button>
-                        </div>
-                    </div>
-                </form>          
-            </div> 
+        <div className={`movie-header bg-${bgColor} align-items-center justify-content-center mb-2`}>
+            <SearchBar btnSearchBg={btnSearchBg} />
+            <Title titleName={titleName}  textColor={color}/>
         </div>
     )
 }

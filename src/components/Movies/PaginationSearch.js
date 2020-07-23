@@ -10,7 +10,8 @@ const PaginationSearch = ({ num }) => {
     totalSearchResults: state.movies.totalSearchResults,
 
   }) )
-
+  
+  // console.log('SearchMovies PAGINATION');
   const history = useHistory()
 
   if(totalSearchResults < 20)return null;
