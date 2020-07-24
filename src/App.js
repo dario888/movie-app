@@ -2,7 +2,6 @@ import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {Provider} from 'react-redux';
 
-import Navbar from './components/Navbar';
 import SearchMovies from './components/Movies/SearchMovies';
 import PopularMovies from './components/Movies/PopularMovies';
 import Genres from './components/Genres/Genres';
@@ -17,7 +16,9 @@ import store from './store';
 
 import './App.css';
 import './Artist.css';
+import Navbar from './components/Navbar';
 import Home from './components/Home';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
       <Route exact path='/artist_details' component={AritstsDetails}/>
       <Route exact path='/search_artist/:num?' component={SearchArtists}/>
     </Switch>
+    <Footer />
     </Provider>
     </BrowserRouter>
 

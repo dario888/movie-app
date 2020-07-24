@@ -28,7 +28,7 @@ const SearchBarArtist = () => {
                 <div className="input-group mx-auto col-sm-11">
                     <input type="text" className="form-control " onChange={handleChange} required placeholder="Search Artist"/>                                     
                     <div className="input-group-append">
-                        <button type="submit" className="btnSearchArtist">
+                        <button type="submit" className="customBtn btnSearchArtist">
                             Search
                         </button>
                     </div>

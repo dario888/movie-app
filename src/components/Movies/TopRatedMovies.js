@@ -45,7 +45,7 @@ const TopRatedMovies = () => {
 
     return(
         <Fragment>
-            <Header titleName='Top Rated Movies' headerBg='danger' btnSearchBg='btn-toprated' />
+            <Header titleName='Top Rated Movies' headerBg='danger' btnSearchBg='btnTopRated' />
             {/* <SearchBar /> */}
             {/* TITLE */}
             {/* <Title titleName='Top Rated Movies' titleBg='danger'/> */}

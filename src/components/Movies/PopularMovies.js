@@ -49,7 +49,7 @@ const PopularMovies = () => {
 
     return(
         <Fragment>
-            <Header titleName='Popular Movies'/>
+            <Header titleName='Popular Movies' btnSearchBg='btnSearch'/>
             {/* <SearchBar />       */}
             {/* <Title titleName='Popular Movies' />          */}
         {/* GRID     */} 

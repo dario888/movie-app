@@ -12,7 +12,7 @@ const Title = ({titleName, titleBg, textColor}) => {
        
         <div className={`title text-center ${titleBg}`}>
             <div className="col">
-                <h1 className={`text-${textColor}`}>{titleName}</h1>               
+                <h1 className={`${textColor}`}>{titleName}</h1>               
             </div>
         </div>
        

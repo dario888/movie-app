@@ -44,7 +44,7 @@ const UpcomingMoves = () => {
 
     return(
         <Fragment>
-            <Header titleName='Upcoming Movies' headerBg='success' btnSearchBg='btn-upcoming'/>
+            <Header titleName='Upcoming Movies' headerBg='success' btnSearchBg='btnUpcoming'/>
             {/* <SearchBar /> */}
             {/* TITLE */}
             {/* <Title titleName='Upcoming Movies' titleBg='success'  /> */}

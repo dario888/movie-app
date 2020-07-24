@@ -33,7 +33,7 @@ const SearchBar = ({btnSearchBg}) => {
                     <input type="text" className="form-control" onChange={handleChange} 
                     required placeholder="Search Movie"/>                                     
                     <div className="input-group-append">
-                        <button type="submit" className={`btn-search ${btnSearchBg}`}>
+                        <button type="submit" className={`customBtn ${btnSearchBg}`}>
                             Search
                         </button>
                     </div>

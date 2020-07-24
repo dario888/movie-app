@@ -56,7 +56,7 @@ const MyList = () => {
                                     <td>{item.runtime + ' min'}</td>
                                     <td>
                                     <span onClick={() => dispatch( removeListItems(item.id) )} 
-                                    className="button" >
+                                    className="customBtn remove" >
                                         Remove
                                     </span></td>
                                 </tr> )
@@ -65,7 +65,7 @@ const MyList = () => {
                         </tbody>
                     </table>
                     <div className="row justify-content-end px-3 mb-4">
-                        <button onClick={() => dispatch( clearList() )} className="clear">
+                        <button onClick={() => dispatch( clearList() )} className="customBtn clear">
                             Clear
                         </button>
                     </div>
