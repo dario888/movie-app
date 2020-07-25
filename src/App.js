@@ -35,7 +35,7 @@ function App() {
       <Route exact path='/my_list' component={MyList}/>
       <Route exact path='/top_rated/:num?' component={TopRatedMovies}/>
       <Route exact path='/upcoming/:num?' component={UpcomingMoves}/>
-      <Route exact path='/genres' component={Genres}/>
+      <Route exact path='/genres/:num?' component={Genres}/>
       <Route exact path='/artists/:num?' component={Artists}/>
       <Route exact path='/artist_details' component={AritstsDetails}/>
       <Route exact path='/search_artist/:num?' component={SearchArtists}/>

@@ -8,7 +8,7 @@ const PaginationSearchArtist = ({num}) => {
   const history = useHistory()
 
   const {totalSearchResults} = useSelector((state) => ({ 
-      totalSearchResults: state.artists.totalSearchResults
+    totalSearchResults: state.artists.totalSearchResults
       
   }) )
   

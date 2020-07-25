@@ -1,4 +1,4 @@
-import {LOADING_GENRES, GENRES, GET_MOVIESDB} from '../types'
+import {LOADING_GENRES, GENRES} from '../types'
 import axios from 'axios'
 
 const apiKey = process.env.REACT_APP_KEY
@@ -18,18 +18,18 @@ export const getGenres = (movieID) => async(dispatch) =>{
     }
 } 
 
-export const getMoviesDB = (pageNumber=1) => async(dispatch) =>{
+// export const setMoviesDB = (pageNumber=1) => async(dispatch) =>{
    
-    try {
-        setLoading(); 
-        const res = await axios(`${apiURL}/movie/popular?api_key=${apiKey}&language=en-US&page=${pageNumber}`)
-        dispatch({type: GET_MOVIESDB, payload: res.data})
-    //    console.log(res.data); //[{},{}]   
+//     try {
+//         setLoading(); 
+//         const res = await axios(`${apiURL}/movie/popular?api_key=${apiKey}&language=en-US&page=${pageNumber}`)
+//         dispatch({type: GET_MOVIESDB, payload: res.data})
+//     //    console.log(res.data); //[{},{}]   
 
-    } catch (error) {
-        console.log(error);
-    }
-} 
+//     } catch (error) {
+//         console.log(error);
+//     }
+// } 
 
 //SET LOADING
 export const setLoading = () => ({type: LOADING_GENRES})

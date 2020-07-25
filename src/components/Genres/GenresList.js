@@ -8,16 +8,16 @@ import PaginationGenres from './PaginationGenres'
 const GenresList = ({genresList, newMoviesDB}) => {
 
 
-    const [genreID, setGenreID] = useState(null)
+    // const [genreID, setGenreID] = useState(null)
     const [currentPage, setCurrentPage] = useState(1)  
  
     const postsPerPage = 10
-    const filteredMovies = newMoviesDB.filter(movie => movie.genre_ids.includes(genreID)  )
+    // const filteredMovies = newMoviesDB.filter(movie => movie.genre_ids.includes(genreID)  )
   
     // Get current posts
     const indexOfLastMovie = currentPage * postsPerPage;
     const indexOfFirstMove = indexOfLastMovie - postsPerPage;
-    const currentMovies = filteredMovies.slice(indexOfFirstMove, indexOfLastMovie);
+    // const currentMovies = filteredMovies.slice(indexOfFirstMove, indexOfLastMovie);
     
     // Change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
@@ -26,7 +26,7 @@ const GenresList = ({genresList, newMoviesDB}) => {
 
         <Fragment>
         
-            <ul className="nav flex-column" style={{height: "200px", marginLeft: "300px" }} >
+            {/* <ul className="nav flex-column" style={{height: "200px", marginLeft: "300px" }} >
             {
                 genresList.map(genre => {
                     let active = genreID === genre.id ? 'active' : ''
@@ -40,7 +40,7 @@ const GenresList = ({genresList, newMoviesDB}) => {
                     )
                 } )
             } 
-            </ul> 
+            </ul>  
             <div className="container p-sm-2 mb-4">
                 <div className="row justify-content-center">
                 {
@@ -50,11 +50,11 @@ const GenresList = ({genresList, newMoviesDB}) => {
                     )
                     
                 }
-            </div>
+                </div>
           <PaginationGenres totalMovies={filteredMovies.length} paginate={paginate} 
           currentPage={currentPage}/>
 
-            </div>
+            </div>*/}
         </Fragment>
     )
 }

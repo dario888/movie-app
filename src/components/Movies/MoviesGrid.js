@@ -14,14 +14,16 @@ const MoviesGrid = ({ posterPath, title, movieID }) => {
    
 
     return (
-        <div className="row card m-1" style={{ width: "200px" }}  >
-            <img src={`${urlImage}/w500/${posterPath}`} className="card-img-top" alt="poster" />
-            <div className="card-body bg-dark">
-                <h5 className="card-title text-warning">{title}</h5>
-                <NavLink  to="/details" className="btn btn-outline-warning text-light" 
-                onClick={ () => dispatch( movieDetails(movieID) ) } >
-                    Details
-                </NavLink>
+        <div className="row justify-content-center col-sm-6 col-lg-4  mb-5">
+            <div className="gridCard"  >
+                <img src={`${urlImage}/w500/${posterPath}`} className="card-img-top" alt="poster" />
+                <div className="card-body bg-light">
+                    <h5 className="card-title text-warning">{title}</h5>
+                    <NavLink  to="/details" className="btn btn-primary text-light" 
+                    onClick={ () => dispatch( movieDetails(movieID) ) } >
+                        Details
+                    </NavLink>
+                </div>
             </div>
         </div>
     )

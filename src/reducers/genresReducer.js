@@ -1,7 +1,7 @@
-import {LOADING_GENRES, GENRES, GET_MOVIESDB} from '../types'
+import {LOADING_GENRES, GENRES} from '../types'
 
 const initState = {
-    moviesDB: [],
+    // moviesDB: [],
     genresList: [],
     genresLoading: false,
 }
@@ -10,14 +10,6 @@ const initState = {
 export default (state=initState, action) => {
 
     switch ( action.type) {
-        
-        case GET_MOVIESDB:
-            return{
-                ...state,
-                moviesDB: [...state.moviesDB, action.payload.results],
-                genresLoading: false
-                
-            }
 
         case GENRES:
             return{
