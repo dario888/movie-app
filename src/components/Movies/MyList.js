@@ -2,45 +2,41 @@ import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import  {useHistory} from 'react-router-dom'
 import {removeListItems, clearList} from '../../actions/moviesActions';
-import Title from '../Title';   
+
   
 
 
 
 
 const MyList = () => {
-
+    
     const {listItems} = useSelector((state) => ({ listItems: state.movies.listItems }) )
     const dispatch = useDispatch()
-
+    
     //Post data on LOCALSTORAGE Component Updated
     useEffect(() => {
         localStorage.setItem('listItems', JSON.stringify(listItems))
         
         //eslint-disable-next-line 
     }, [listItems]);
-
-    const history = useHistory();
-    const goBackHistory = () => history.goBack()
-
-  
-    if(!listItems.length) return<h2>No Movies Added </h2> 
     
+    const history = useHistory();
+    const goBackHistory = () => history.push('/')
+    
+    if(!listItems.length) return(
+        <div className="errormDiv px-2 text-center">
+            <h2 className="errormMsg">No Movie Added, Pleace Add A Movie </h2>
+        </div>  
+    )
+
+    const height100 =  listItems.length > 8 && 'height-100'; 
+
      
 
     return (
-        <div className="myList">   
-         <Title titleName='My List' titleBg='title-bg'/> 
-            <div className="container p-sm-1">
-                <div className="row btn btn-warning mb-4 ml-3" >                 
-                    <i className="fas fa-arrow-left"></i>
-                    <span className="text-dark font-weight-bold ml-2" onClick={goBackHistory}>
-                        Go Back
-                    </span>                
-                </div>
-                            
-                <div className="container ">
-                    <table className="table text-light" >
+        <div className={`myList ${height100}`}>   
+            <div className="container p-sm-1 ">
+                    <table className="table  text-light" >
                         <thead className="tbl-head">
                             <tr>                  
                                 <th scope="col">Title</th>
@@ -64,12 +60,15 @@ const MyList = () => {
                             }
                         </tbody>
                     </table>
-                    <div className="row justify-content-end px-3 mb-4">
+                    <div className="row justify-content-around pb-4">                  
+                        <button className="goBackBtn" onClick={goBackHistory}>
+                            Go Back
+                        </button>                
+             
                         <button onClick={() => dispatch( clearList() )} className="customBtn clear">
                             Clear
                         </button>
                     </div>
-                </div>     
             </div>
         </div>
     )

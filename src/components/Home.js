@@ -71,10 +71,9 @@ const Home = () => {
                         <div className="text-center">
                             <div className="row mb-5">
                                 <div className="col text-center">
-                                    <h1 className="display-3 text-dark">
+                                    <h1 className="text-dark">
                                         <strong>ABOUT</strong>
                                     </h1>
-                                    <div className="titleUnderline bg-warning"></div>
                                 </div>
                             </div>
             
