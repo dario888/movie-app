@@ -23,10 +23,10 @@ const SearchBarArtist = () => {
  
 
     return (
-        <div className="container-sm searchbarArtist mb-4">
+        <div className="container-sm searchBarArtist mb-4">
             <form className="form-inline" onSubmit={handleSubmit}>
                 <div className="input-group mx-auto col-sm-11">
-                    <input type="text" className="form-control " onChange={handleChange} required placeholder="Search Artist"/>                                     
+                    <input type="text" className="form-control bgInputArtists " onChange={handleChange} required placeholder="Search Artist"/>                                     
                     <div className="input-group-append">
                         <button type="submit" className="customBtn btnSearchArtist">
                             Search

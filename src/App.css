@@ -32,6 +32,15 @@ body {
     
 }
 
+.searchBar .bgInput {
+    background-color: transparent;
+    color: #fff;
+}
+
+.searchBar .btnSearch {
+    background-color: transparent;
+    border: 1px #fff solid;
+}
 
 .goBackBtn {
     border: 1px solid #fff;
@@ -42,6 +51,7 @@ body {
     padding: 5px 15px;
 }
 
+
 .goBackBtn:hover {
     background: #fff;
     color: #333;
@@ -49,6 +59,14 @@ body {
 
 .goBackBtn:focus {
     outline: none;
+}
+
+.titleColor {
+    color: black;
+}
+
+.btnSearch:hover {
+    background-color: #505C64 ;
 }
 
 /* ======================================Navbar=============================================== */
@@ -112,39 +130,42 @@ body {
     margin-bottom: 20px;
 }
 
-
-
-/* -------------------------------------- */
-
-.btnSearch{
-    background: #d4ac0d;
+/* --------------------------------------POPULAR MOVIES -----------------------------------------*/
+.bgColorPopular {
+    background: #43334C;
 }
 
-.btnSearch:hover{
-    background: #D35400;
+.bgPopular {
+    background: linear-gradient(45deg, #7D3C98 18%,#6C3483 18% 50%, #5B2C6F 50% 85%, #4A235A 85%);
 }
 
-.btnTopRated{
-    background-color: #CE1313  ;
-    color: #fff;
-}
-.btnTopRated:hover{
-    background-color: #922B21 ;
+/* --------------------------------------TOP RATED MOVIES -----------------------------------------*/
+.bgColorTopRated {
+    background: #662822 ;
 }
 
-.btnUpcoming{
-    background-color: green;
-    color: #fff;
+.bgTopRated {
+    background: linear-gradient(45deg, #E74C3C 18%, #922B21 18% 50%, #7B241C 50% 85%, #ED3928 85%);
 }
 
-.btnUpcoming:hover {
-    background-color: #145A32 ;
+/* --------------------------------------UPCOMING MOVIES -----------------------------------------*/
+.bgColorUpcoming{
+    background: #154360  ;
 }
 
-/* end Searchbar */
-/* end header */
+.bgUpcoming {
+    background: linear-gradient(45deg, #2E86C1 18%, #21618C 18% 50%, #1B4F72 50% 85%, #2874A6 85%);
+    
+}
 
-/* Title */
+/* --------------------------------------SEARCH MOVIES -----------------------------------------*/
+.bgSearchMovie {
+    background: linear-gradient(45deg, #F1C40F 18%, #E67E22 18% 50%, #F39C12 50% 85%, #D35400 85%);
+}
+
+
+
+/*========================================== Title ==============================================*/
 
 .title h1{
     font-family: 'Bangers', cursive;
@@ -174,7 +195,6 @@ body {
     font-family: 'Indie Flower', cursive;
     color: #fff;
 }
-
 
 
 .myList {
@@ -213,16 +233,21 @@ body {
 
 /* end My list */
 /* =======================================Grid============================================== */
-.gridCard {
-    border: 2px solid #fff ;
-    border: 5px;
+
+.card{   
+    box-shadow: 3px 4px 5px #999;
+    transition: all .4s;
     width: 250px; 
 }
 
 .card-img-top{
-    width:100%;
-    height: 320px;
-    flex: box;   
+    height: 400px;
+    background: url('./images/default.jpg') no-repeat center center/cover;
+}
+
+.card:hover{
+    box-shadow: 5px 6px 15px #999;
+    transform: translateY(-3px);
 }
 
 /* =======================================Home============================================== */
@@ -252,6 +277,8 @@ body {
     background-color: transparent;
     color: #fff;
 }
+
+
 
 .homeHeader .homeTitle {
     font-family: 'Bangers', cursive;
@@ -327,7 +354,6 @@ body {
     background: #007bff;
 }
 
-
 .mainGrid {
     background: linear-gradient(45deg, #823E3E 18%, transparent 20%), 
     url('./images/genre.jpg')no-repeat center center/cover;
@@ -352,10 +378,6 @@ body {
         height: 100%;
     }
 }
-
-/* @media() {
-    
-} */
 
 @media(min-width: 577px) and (max-width: 768px){
     .genres {
@@ -384,11 +406,6 @@ body {
     padding-bottom: 25px;
 }
 
-.movieAdd .badge,
-.movieAdd .btn {
-    margin-left: 80px;   
-}
-
 /* =====================================Footer================================================ */
 
 .aboutContact {
@@ -403,7 +420,6 @@ body {
    opacity: 0.7;
 }
 
-
 /* =====================================Utilities================================================ */
 .height-80{
     min-height: 80vh;
@@ -413,4 +429,10 @@ body {
     height: 100%;
 }
 
+
+@media(max-width: 500px){
+    .btnLink{
+        font-size: 11px;
+    }
+}
 

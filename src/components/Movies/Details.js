@@ -51,13 +51,13 @@ const Details = () => {
                 </div>                    
             </div>  
 
-            <div className="row ml-3 movieAdd">  
+            <div className="row justify-content-center movieAdd">  
             <Fragment>
                 {                 
                     listItems.find(item => item.id === id) 
                     ?
-                    <h4>
-                        <span className="badge badge-success">The Movie is Added</span>
+                    <h4 className="">
+                        <span className="badge badge-success ">The Movie is Added</span>
                     </h4> 
                     :
                     <NavLink onClick={()=> dispatch( addListItems({title, id, runtime}) )} 

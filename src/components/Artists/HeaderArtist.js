@@ -1,16 +1,16 @@
 import React from 'react'
 import SearchBarArtist from './SearchBarArtist'
-import Title from '../Title'
 
 
 
 
-const Header = ({titleName, textColor}) => {
+
+const Header = ({titleName, headerBg, textColor}) => {
     
     return(
-        <div className="artist-header bg-secondary align-items-center justify-content-center mb-2">
+        <div className={`artistHeader ${headerBg} align-items-center justify-content-center`}>
             <SearchBarArtist />
-            <Title textColor={textColor}  titleName={titleName} />
+            <h1 className="titleArtists px-3">Popular Artists</h1>
         </div>
     )
     

@@ -77,8 +77,8 @@ const Genres = () => {
                             
                         }
                 </div> 
-            <PaginationGenres totalMovies={filteredMovies.length} filteredMovies={filteredMovies}
-            setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+                <PaginationGenres totalMovies={filteredMovies.length} filteredMovies={filteredMovies}
+                setCurrentPage={setCurrentPage} currentPage={currentPage}/>
             </div>
 
            

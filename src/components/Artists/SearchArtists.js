@@ -2,9 +2,8 @@ import React, {Fragment, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import  { useParams} from 'react-router-dom'
 
-import PaginationSearchArtist from './PaginationSearchArtist';      
-import HeaderArtist from './HeaderArtist';      
-// import Title from '../Title';     
+import PaginationSearchArtist from './PaginationSearchArtist';       
+import SearchBarArtist from './SearchBarArtist';      
 import ArtistsGrid from './ArtistsGrid'
 import { artistSearch } from '../../actions/artistsAction'
 
@@ -35,10 +34,9 @@ const SearchArtists = () => {
     
     return (
         <Fragment>
-            <HeaderArtist titleName='Search Artists'  textColor='success' />
-            {/* <Title titleName='Search Artists' titleBg='info' textColor='success' /> */}
-            <section className="container p-sm-4 ">
-            <div className="container">
+            <section className="container-fluid py-4 bgSearchArtist">
+            <SearchBarArtist />
+            <div className="container mt-5">
                 <div className="row justify-content-center" >                 
                 {
                     !artistsLoading &&  searchArtist.map( artist =>
@@ -49,8 +47,8 @@ const SearchArtists = () => {
                 }
                 </div>
             </div> 
-        </section> 
         <PaginationSearchArtist num={num} />
+        </section> 
         </Fragment>
     )
 }

@@ -5,16 +5,12 @@ import Title from './Title'
 
 
 
-const Header = ({headerBg, titleName,  textColor, btnSearchBg}) => {
-
-    let bgColor = headerBg ||'warning'
-    let color = textColor ||'dark'
-
+const Header = ({headerBg, titleName,  titleColor, btnSearchBg}) => {
 
     return (
-        <div className={`movie-header bg-${bgColor} align-items-center justify-content-center mb-2`}>
+        <div className={`movie-header ${headerBg} align-items-center justify-content-center `}>
             <SearchBar btnSearchBg={btnSearchBg} />
-            <Title titleName={titleName}  textColor={color}/>
+            <Title titleName={titleName}  textColor={titleColor}/>
         </div>
     )
 }

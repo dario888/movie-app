@@ -5,7 +5,7 @@ import  { useParams} from 'react-router-dom'
 import PaginationSearch from './PaginationSearch'
 // import SearchBar from '../SearchBar';   
 // import Title from '../Title';    
-import Header from '../Header';    
+import SearchBar from '../SearchBar';    
 import MoviesGrid from './MoviesGrid'
 import { searchMovies } from '../../actions/moviesActions'
 
@@ -32,16 +32,13 @@ const SearchMovies = () => {
     //eslint-disable-next-line  
     }, [num])
 
-    // console.log('SearchMovies MOVIES');
     if(loading || !searchMovie)return <h2>Loading...</h2>
 
     return (
         <Fragment>
-            <Header titleName='Search Movies' textColor='warning' headerBg='dark' />
-            {/* <SearchBar />
-            <Title titleName='Search Movies' titleBg='dark' textColor='warning' /> */}
-            <section className="container p-sm-4 ">
-            <div className="container">
+            <section className="container-fliud py-4 bgSearchMovie">
+            <SearchBar /> 
+            <div className="container mt-5">
                 <div className="row justify-content-center" >                 
                 {
                     !loading &&  searchMovie.map( movie =>
@@ -51,8 +48,8 @@ const SearchMovies = () => {
                 }
                 </div>
             </div> 
-        </section> 
         <PaginationSearch num={num}/>
+        </section> 
         </Fragment>
     )
 }

@@ -16,12 +16,15 @@ import {getMovies} from '../../actions/moviesActions'
 const PopularMovies = () => {
 
     const popular = 'popular' 
+    const popularMovies = 'Popular Movies' 
+    const bgColorPopular = 'bgColorPopular' 
+
 
     const {moviesPopular, loading} = useSelector(state => ({
         moviesPopular: state.movies.moviesPopular,
         loading: state.movies.loading
     }))
-    // console.log('POPULAR MOVIES');
+  
 
     const dispatch = useDispatch()
     
@@ -42,19 +45,15 @@ const PopularMovies = () => {
     //eslint-disable-next-line  
   }, [num])
 
-    // const memoPagination = useMemo(() => <PaginationMovies num={num} page={popular}/>,[num])
-
     if(loading || !moviesPopular)return <h2>Loading...</h2>
 
 
     return(
         <Fragment>
-            <Header titleName='Popular Movies' btnSearchBg='btnSearch'/>
-            {/* <SearchBar />       */}
-            {/* <Title titleName='Popular Movies' />          */}
+        <Header titleName={popularMovies} headerBg={bgColorPopular} />
         {/* GRID     */} 
-        <section className="container p-sm-3 mb-4">
-            <div className="container ">
+        <section className="container-fluid py-4 bgPopular">
+            <div className="container">
                 <div className="row justify-content-center " >                 
                 {                            
                     !loading &&  moviesPopular.map( movie => 
@@ -63,10 +62,8 @@ const PopularMovies = () => {
                 }
                 </div>
             </div>  
+                <PaginationMovies num={num} page={popular}/>
         </section>
-        {/* GRID  */} 
-        <PaginationMovies num={num} page={popular}/>
-        {/* {memoPagination} */}
         </Fragment>
   
     )

@@ -13,11 +13,14 @@ import {getArtists} from '../../actions/artistsAction'
 
 const Artists = () => {
 
-
     const {artistsList, artistsLoading} = useSelector(state => ({
         artistsList: state.artists.artistsList,
         artistsLoading: state.artists.artistsLoading
     }))
+
+   
+    const titleName = 'Popular Artists'
+    const bgArtistsHeader = 'bgArtistsHeader'
 
     const dispatch = useDispatch()
     
@@ -43,12 +46,9 @@ const Artists = () => {
 
     return(
         <Fragment>
-            <HeaderArtist titleName='Popular Artists' textColor='success'/>
-            {/* TITLE */}
-            {/* <Title titleName='Popular Artists' titleBg='bg-warning' textColor='success'/> */}
-            {/* TITLE */}
+            <HeaderArtist titleName={titleName} textColor='success' headerBg={bgArtistsHeader}/>
         {/* GRID     */} 
-        <section className="container p-sm-3 mb-4">
+        <section className="container-fluid py-4 bgArtists">
             <div className="container ">
                 <div className="row justify-content-center " >   
                 {                                      
@@ -59,9 +59,9 @@ const Artists = () => {
                 }
                 </div>
             </div>  
+        <PaginationArtists num={num} />
         </section>
         {/* GRID  */} 
-        <PaginationArtists num={num} />
         </Fragment>
   
     )

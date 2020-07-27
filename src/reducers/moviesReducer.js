@@ -25,6 +25,7 @@ export default (state=initState, action) => {
             return{
                 ...state,
                 moviesPopular: action.payload.results,
+                totalUpcomingResults: action.payload.total_results,
                 loading: false
             }
             
@@ -32,6 +33,7 @@ export default (state=initState, action) => {
             return{
                 ...state,
                 moviesTopRated: action.payload.results,
+                totalUpcomingResults: action.payload.total_results,
                 loading: false
             }           
 

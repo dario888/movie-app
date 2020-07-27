@@ -13,7 +13,7 @@ const PaginationSearchArtist = ({num}) => {
   }) )
   
  if(totalSearchResults < 20) return null  
- const pages = Math.ceil(totalSearchResults /20) 
+ const pages = totalSearchResults > 200 ? 10 : Math.ceil(totalSearchResults / 20) 
   const pageNumbers = [];
   for (let i = 1; i <= pages; i++) {
       pageNumbers.push(i);
@@ -29,19 +29,19 @@ const PaginationSearchArtist = ({num}) => {
           {
             num > 1 ?
             <li onClick={ () => history.push(`/search_artist/${num - 1}`) }  className={`page-item `}>
-                  <button className="page-link btn">Prev</button>            
+                  <button className="btnLink">Prev</button>            
             </li> : 
             <li className={`page-item disable`}>
-              <button className="page-link btn">Prev</button>            
+              <button className="btnLink">Prev</button>            
             </li>
           }
 
           {
             pageNumbers.map(number => {              
-              let active = num === number ? 'active' : ''
+              let active = num === number ? 'activeBtnLink' : ''
                 return (
                   <li onClick={() => history.push(`/search_artist/${number}`)} key={number} className={`page-item ${active}`}>
-                      <button className="page-link btn">{number}</button>            
+                      <button className="btnLink">{number}</button>            
                   </li>
                 )
             })
@@ -50,10 +50,10 @@ const PaginationSearchArtist = ({num}) => {
           {
             num < 10 ?
             <li onClick={ () => history.push(`/search_artist/${num + 1}`)}  className={`page-item`}>
-              <button className="page-link btn">Next</button>            
+              <button className="btnLink">Next</button>            
             </li> : 
             <li  className={`page-item disable`}>
-              <button className="page-link btn">Next</button>            
+              <button className="btnLink">Next</button>            
             </li>
           }
         </ul>

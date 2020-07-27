@@ -11,13 +11,12 @@ const PaginationSearch = ({ num }) => {
 
   }) )
   
-  // console.log('SearchMovies PAGINATION');
   const history = useHistory()
 
   if(totalSearchResults < 20)return null;
 
   const pageNumbers = [];
-  const numberPages =  Math.ceil(totalSearchResults / 20) 
+  const numberPages = totalSearchResults > 200 ? 10 : Math.ceil(totalSearchResults / 20) 
 
   for (let i = 1; i <= numberPages; i++) {
       pageNumbers.push(i);
@@ -33,19 +32,19 @@ const PaginationSearch = ({ num }) => {
           {
             num > 1 ?
             <li onClick={ () =>  history.push(`/search_movies/${num - 1}`) }  className={`page-item `}>
-                  <span className="page-link btn">Prev</span>            
+                  <button className="btnLink">Prev</button>            
             </li> : 
             <li className={`page-item disable`}>
-              <span className="page-link btn">Prev</span>            
+              <button className="btnLink">Prev</button>            
             </li>
           }
 
           {
             pageNumbers.map(number => {              
-              let active = num === number ? 'active' : ''
+              let active = num === number ? 'activeBtnLink' : ''
                 return (
                   <li onClick={() => history.push(`/search_movies/${number}`) } key={number} className={`page-item ${active}`}>
-                      <span className="page-link btn">{number}</span>            
+                      <button className="btnLink">{number}</button>            
                   </li>
                 )
             })
@@ -54,10 +53,10 @@ const PaginationSearch = ({ num }) => {
           {
             num < numberPages ?
             <li onClick={ () => history.push(`/search_movies/${num + 1}`) }  className={`page-item`}>
-              <button className="page-link btn">Next</button>            
+              <button className="btnLink">Next</button>            
             </li> : 
             <li  className={`page-item disable`}>
-              <button className="page-link btn">Next</button>            
+              <button className="btnLink">Next</button>            
             </li>
           }
         </ul>

@@ -5,14 +5,13 @@ import React from 'react'
 
 const Title = ({titleName, titleBg, textColor}) => {
     
-    // let bgColor = titleBg ||'warning' //bg-${bgColor}
-    // let color = textColor ||'dark'
+    let color = textColor ||'titleColor'
     
     return (
        
         <div className={`title text-center ${titleBg}`}>
             <div className="col">
-                <h1 className={`${textColor}`}>{titleName}</h1>               
+                <h1 className={color}>{titleName}</h1>               
             </div>
         </div>
        

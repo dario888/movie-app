@@ -13,11 +13,9 @@ const PaginationMovies = ({num, page}) => {
 
   const history = useHistory();
 
-  // console.log('PAGINATION  MOVIES');
-
   const pageNumbers = [];
   
-  const pagiPages = totalUpcomingResults ? Math.ceil(totalUpcomingResults / 20) : 10
+  const pagiPages = totalUpcomingResults > 200 ? 10 : Math.ceil(totalUpcomingResults / 20)
   for (let i = 1; i <= pagiPages; i++) {
       pageNumbers.push(i);
   }
@@ -26,25 +24,25 @@ const PaginationMovies = ({num, page}) => {
 
   return (
     
-    <div className="container mb-4">
-      <div className="row justify-content-center">
-        <ul className="pagination">
+    <div className="container mb-4 ">
+      <div className="row justify-content-center ">
+        <ul className="pagination ">
           {
             num > 1 ?
             <li onClick={ () => history.push(`/${page}/${num - 1}`)}  className={`page-item `}>
-                  <span className="page-link btn">Prev</span>            
+                  <button className="btnLink">Prev</button>            
             </li> : 
             <li className={`page-item disable`}>
-              <span className="page-link btn">Prev</span>            
+              <button className="btnLink">Prev</button>            
             </li>
           }
 
           {
             pageNumbers.map(number => {              
-              let active = num === number ? 'active' : ''
+              let active = num === number ? 'activeBtnLink' : ''
                 return (
                   <li onClick={() => history.push(`/${page}/${number}`) } key={number} className={`page-item ${active}`}>
-                      <span className="page-link btn">{number}</span>            
+                      <button className="btnLink">{number}</button>            
                   </li>
                 )
             })
@@ -53,10 +51,10 @@ const PaginationMovies = ({num, page}) => {
           {
             num < 10 ?
             <li onClick={ () => history.push(`/${page}/${num + 1}`)}  className={`page-item`}>
-              <button className="page-link btn">Next</button>            
+              <button className="btnLink">Next</button>            
             </li> : 
             <li  className={`page-item disable`}>
-              <button className="page-link btn">Next</button>            
+              <button className="btnLink">Next</button>            
             </li>
           }
         </ul>

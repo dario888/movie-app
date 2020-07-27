@@ -13,6 +13,8 @@ import {getMovies} from '../../actions/moviesActions'
 
 const UpcomingMoves = () => {
     const upcoming = 'upcoming'
+    const bgColorUpcoming = 'bgColorUpcoming'
+    const titleName = 'Upcoming Movies'
 
     const {moviesUpcoming, loading} = useSelector(state => ({
         moviesUpcoming: state.movies.moviesUpcoming,
@@ -44,14 +46,10 @@ const UpcomingMoves = () => {
 
     return(
         <Fragment>
-            <Header titleName='Upcoming Movies' headerBg='success' btnSearchBg='btnUpcoming'/>
-            {/* <SearchBar /> */}
-            {/* TITLE */}
-            {/* <Title titleName='Upcoming Movies' titleBg='success'  /> */}
-            {/* TITLE */}
+        <Header titleName={titleName} headerBg={bgColorUpcoming} />
         {/* GRID     */} 
-        <section className="container p-sm-3 mb-4">
-            <div className="container ">
+        <section className="container-fluid py-4 bgUpcoming">
+            <div className="container">
                 <div className="row justify-content-center " >                 
                 {                            
                     !loading &&  moviesUpcoming.map( movie => 
@@ -60,9 +58,9 @@ const UpcomingMoves = () => {
                 }
                 </div>
             </div>  
+        <PaginationMovies num={num} page={upcoming} />
         </section>
         {/* GRID  */} 
-        <PaginationMovies num={num} page={upcoming} />
         </Fragment>
   
     )

@@ -14,6 +14,11 @@ import {getMovies} from '../../actions/moviesActions'
 
 const TopRatedMovies = () => {
     const topRated = 'top_rated'
+    const titleName = 'Top Rated'
+    const bgColorTopRated = 'bgColorTopRated'
+   
+
+
    
     const {moviesTopRated, loading} = useSelector(state => ({
         moviesTopRated: state.movies.moviesTopRated,
@@ -45,13 +50,9 @@ const TopRatedMovies = () => {
 
     return(
         <Fragment>
-            <Header titleName='Top Rated Movies' headerBg='danger' btnSearchBg='btnTopRated' />
-            {/* <SearchBar /> */}
-            {/* TITLE */}
-            {/* <Title titleName='Top Rated Movies' titleBg='danger'/> */}
-            {/* TITLE */}
+            <Header titleName={titleName} headerBg={bgColorTopRated} />
         {/* GRID     */} 
-        <section className="container p-sm-3 mb-4">
+        <section className="container-fluid py-4 bgTopRated">
             <div className="container ">
                 <div className="row justify-content-center " >                 
                 {                            
@@ -61,9 +62,9 @@ const TopRatedMovies = () => {
                 }
                 </div>
             </div>  
+            <PaginationMovies num={num} page={topRated} />
         </section>
-        {/* GRID  */} 
-        <PaginationMovies num={num} page={topRated} />
+       
         </Fragment>
   
     )

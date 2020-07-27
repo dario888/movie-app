@@ -1,23 +1,55 @@
 /* ========================================ARTISTS CSS========================================== */
 /* header */
-.artist-header {
+.artistHeader {
     display: flex;
     flex-direction: column;
     margin-top: 80px;
-    height: 50vh; 
+    height: 55vh; 
+}
+
+.bgArtistsHeader {
+    background: linear-gradient(45deg, #2ECC71 18%, #196F3D 18% 50%, #1E8449 50% 85%, #145A32 85%);
+}
+
+.titleArtists {
+    font-family: 'Indie Flower', cursive;
+    font-size: 7rem;
+    color: #fff;
+    margin-bottom: 50px;
   
 }
 
 /* end of  header*/
 
 /* search bar */
+.searchBarArtist {
+    margin-top: 85px;
+    margin-bottom: 20px;
+}
 
-.btnSearchArtist {
-    background-color: #1A5276 ;
+.searchBarArtist .bgInputArtists {
+    background-color: transparent;
+    color: #fff;
+}
+
+.searchBarArtist .btnSearchArtist {
+    background-color: transparent;
+    border: 1px #fff solid;
 }
 
 .btnSearchArtist:hover {
-    background-color: #3498DB ;
+    background-color: #505C64 ;
 }
 
 /* end of search bar */
+
+.bgArtists {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),  url('./images/artists-bg.jpg')no-repeat center center/cover;    
+}
+
+.bgSearchArtist {
+    background: linear-gradient(45deg, #2ECC71 18%, #196F3D 18% 50%, #1E8449 50% 85%, #145A32 85%);    
+}
+
+
+

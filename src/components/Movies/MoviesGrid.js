@@ -14,11 +14,11 @@ const MoviesGrid = ({ posterPath, title, movieID }) => {
    
 
     return (
-        <div className="row justify-content-center col-sm-6 col-lg-4  mb-5">
-            <div className="gridCard"  >
+        <div className="row justify-content-center col-sm-6 col-lg-4 mb-4">
+            <div className="card" >
                 <img src={`${urlImage}/w500/${posterPath}`} className="card-img-top" alt="poster" />
                 <div className="card-body bg-light">
-                    <h5 className="card-title text-warning">{title}</h5>
+                    <h5 className="card-title text-muted">{title}</h5>
                     <NavLink  to="/details" className="btn btn-primary text-light" 
                     onClick={ () => dispatch( movieDetails(movieID) ) } >
                         Details
