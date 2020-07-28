@@ -11,7 +11,7 @@ const initState = {
     searchMovie: null,
     totalSearchResults: 0,
     totalUpcomingResults: 0,
-    details: null, //{}
+    details: null, 
     listItems: JSON.parse(localStorage.getItem('listItems')) || []
 
 }

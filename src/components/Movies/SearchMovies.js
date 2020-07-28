@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import  { useParams} from 'react-router-dom'
 
 import PaginationSearch from './PaginationSearch'
-// import SearchBar from '../SearchBar';   
-// import Title from '../Title';    
+import Spinner from '../../Spinner'  
 import SearchBar from '../SearchBar';    
 import MoviesGrid from './MoviesGrid'
 import { searchMovies } from '../../actions/moviesActions'
@@ -32,7 +31,7 @@ const SearchMovies = () => {
     //eslint-disable-next-line  
     }, [num])
 
-    if(loading || !searchMovie)return <h2>Loading...</h2>
+    if(loading || !searchMovie)return <Spinner />
 
     return (
         <Fragment>

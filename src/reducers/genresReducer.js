@@ -1,7 +1,6 @@
 import {LOADING_GENRES, GENRES} from '../types'
 
 const initState = {
-    // moviesDB: [],
     genresList: [],
     genresLoading: false,
 }

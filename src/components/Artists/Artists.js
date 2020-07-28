@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import  { useParams} from 'react-router-dom'
 
 import ArtistsGrid from './ArtistsGrid'
-import PaginationArtists from './PaginationArtists'                 
-// import Title from '../Title';                    
-import HeaderArtist from './HeaderArtist';                    
+import PaginationArtists from './PaginationArtists'                              
+import HeaderArtist from './HeaderArtist';      
+import Spinner from '../../Spinner';                    
 import {getArtists} from '../../actions/artistsAction'
 
 
@@ -41,7 +41,7 @@ const Artists = () => {
     //eslint-disable-next-line  
   }, [num])
 
-    if(artistsLoading || !artistsList)return <h2>Loading...</h2>
+    if(artistsLoading || !artistsList.length)return <Spinner/>
 
 
     return(

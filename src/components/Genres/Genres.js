@@ -4,6 +4,7 @@ import {getGenres} from '../../actions/genresActions'
 import Title from '../Title'; 
 import MoviesGrid from '../Movies/MoviesGrid'; 
 import PaginationGenres from './PaginationGenres'
+import Spinner from '../../Spinner';       
 import data from '../../data.json'; 
 
 
@@ -39,7 +40,7 @@ const Genres = () => {
     const indexOfFirstMove = indexOfLastMovie - postsPerPage;
     const currentMovies = filteredMovies.slice(indexOfFirstMove, indexOfLastMovie);
 
-    if(genresLoading || !genresList)return <h2>Loading...</h2>
+    if(genresLoading || !genresList.length)return <Spinner />
 
     const height100 = genreID && 'height-100'; 
 

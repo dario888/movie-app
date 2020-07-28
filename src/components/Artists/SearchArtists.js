@@ -5,6 +5,7 @@ import  { useParams} from 'react-router-dom'
 import PaginationSearchArtist from './PaginationSearchArtist';       
 import SearchBarArtist from './SearchBarArtist';      
 import ArtistsGrid from './ArtistsGrid'
+import Spinner from '../../Spinner';  
 import { artistSearch } from '../../actions/artistsAction'
 
 
@@ -30,7 +31,7 @@ const SearchArtists = () => {
     //eslint-disable-next-line  
     }, [num])
     
-    if(artistsLoading || !searchArtist)return <h2>Loading...</h2>
+    if(artistsLoading || !searchArtist.length)return  <Spinner />
     
     return (
         <Fragment>

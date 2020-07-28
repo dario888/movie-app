@@ -44,12 +44,23 @@
 /* end of search bar */
 
 .bgArtists {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),  url('./images/artists-bg.jpg')no-repeat center center/cover;    
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), #196F3D;  
 }
 
 .bgSearchArtist {
     background: linear-gradient(45deg, #2ECC71 18%, #196F3D 18% 50%, #1E8449 50% 85%, #145A32 85%);    
 }
 
+/* ========================================Artist Details ======================================= */
+.artistDetails {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),  url('./images/artists-bg.jpg')no-repeat center center/cover;    
+    color: #fff;
+    height: 100%;
+}
 
+.artistTitle {
+   font-size: 80px;
+   font-family: 'Indie Flower', cursive;
+   padding-top: 55px;
 
+}

@@ -21,7 +21,7 @@ body {
     border: none;
     color: #fff;
 }
-
+/* -------------------------------------------------- */
 .btnLink {
     border: 0.5px solid #fff;
     background: transparent;
@@ -31,6 +31,19 @@ body {
     padding: 1px 10px;
     
 }
+
+@media(max-width: 500px){
+    .btnLink{
+        font-size: 11px;
+        
+    }
+}
+
+.activeBtnLink{
+    background: #007bff;
+   
+}
+/* ---------------------------------------------- -----------------------*/
 
 .searchBar .bgInput {
     background-color: transparent;
@@ -42,6 +55,7 @@ body {
     border: 1px #fff solid;
 }
 
+/* ---------------------------------------------- -----------------------*/
 .goBackBtn {
     border: 1px solid #fff;
     border-radius: 5px;
@@ -50,7 +64,6 @@ body {
     color: #fff;
     padding: 5px 15px;
 }
-
 
 .goBackBtn:hover {
     background: #fff;
@@ -61,6 +74,7 @@ body {
     outline: none;
 }
 
+/* ---------------------------------------------- -----------------------*/
 .titleColor {
     color: black;
 }
@@ -350,10 +364,6 @@ body {
     color: #d4ac0d;
 }
 
-.activeBtnLink{
-    background: #007bff;
-}
-
 .mainGrid {
     background: linear-gradient(45deg, #823E3E 18%, transparent 20%), 
     url('./images/genre.jpg')no-repeat center center/cover;
@@ -430,9 +440,5 @@ body {
 }
 
 
-@media(max-width: 500px){
-    .btnLink{
-        font-size: 11px;
-    }
-}
+
 

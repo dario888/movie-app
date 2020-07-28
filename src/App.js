@@ -1,24 +1,26 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {Provider} from 'react-redux';
-
-import SearchMovies from './components/Movies/SearchMovies';
-import PopularMovies from './components/Movies/PopularMovies';
-import Genres from './components/Genres/Genres';
-import Details from './components/Movies/Details';
-import MyList from './components/Movies/MyList';
-import TopRatedMovies from './components/Movies/TopRatedMovies';
-import UpcomingMoves from './components/Movies/UpcomingMoves';
-import Artists from './components/Artists/Artists';
-import SearchArtists from './components/Artists/SearchArtists';
-import AritstsDetails from './components/Artists/AritstsDetails';
 import store from './store';
-
-import './App.css';
-import './Artist.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Footer from './components/Footer';
+import Spinner from './Spinner'
+import './App.css';
+import './Artist.css';
+
+//---------------------------------------- Code Spliting --------------------------------------------
+const  PopularMovies = React.lazy(()=> import('./components/Movies/PopularMovies'));
+const  TopRatedMovies = React.lazy(()=> import('./components/Movies/TopRatedMovies'));
+const  UpcomingMoves = React.lazy(()=> import('./components/Movies/UpcomingMoves'));
+const  Details = React.lazy(()=> import('./components/Movies/Details'));
+const  SearchMovies = React.lazy(()=> import('./components/Movies/SearchMovies'));
+const  Genres = React.lazy(()=> import('./components/Genres/Genres'));
+const  Artists = React.lazy(()=> import('./components/Artists/Artists'));
+const  AritstsDetails = React.lazy(()=> import('./components/Artists/AritstsDetails'));
+const  SearchArtists = React.lazy(()=> import('./components/Artists/SearchArtists'));
+const  MyList = React.lazy(()=> import('./components/Movies/MyList'));
+
 
 
 function App() {
@@ -29,6 +31,7 @@ function App() {
     <Navbar />
     <Switch>
       <Route exact path='/' component={Home}/>
+      <Suspense fallback={Spinner}>
       <Route exact path='/popular/:num?' component={PopularMovies}/>
       <Route exact path='/search_movies/:num?' component={SearchMovies}/>
       <Route exact path='/details' component={Details}/>
@@ -39,6 +42,7 @@ function App() {
       <Route exact path='/artists/:num?' component={Artists}/>
       <Route exact path='/artist_details' component={AritstsDetails}/>
       <Route exact path='/search_artist/:num?' component={SearchArtists}/>
+      </Suspense>
     </Switch>
     <Footer />
     </Provider>

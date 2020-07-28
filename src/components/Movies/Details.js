@@ -2,6 +2,7 @@ import React, {Fragment} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import  {useHistory, NavLink} from 'react-router-dom'
 import {addListItems} from '../../actions/moviesActions';
+import Spinner from '../../Spinner';      
 
 
 
@@ -21,9 +22,9 @@ const Details = () => {
     
     const urlImage = process.env.REACT_APP_IMG;
 
-
+    console.log('DETAILS');
     
-    if(loading || !details)return <h2>Loading...</h2>
+    if(loading || !details)return <Spinner />
 
     const {title, backdrop_path, genres, id, release_date, runtime, vote_average, overview} = details
    

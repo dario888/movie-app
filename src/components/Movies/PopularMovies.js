@@ -3,10 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import  { useParams} from 'react-router-dom'
 
 import MoviesGrid from './MoviesGrid'
-import PaginationMovies from './PaginationMovies'
-// import SearchBar from '../SearchBar';                    
-// import Title from '../Title';       
- import Header from '../Header';       
+import PaginationMovies from './PaginationMovies'       
+import Header from '../Header';       
+import Spinner from '../../Spinner';       
 
 import {getMovies} from '../../actions/moviesActions'
 
@@ -25,7 +24,7 @@ const PopularMovies = () => {
         loading: state.movies.loading
     }))
   
-
+    console.log('POPULAR');
     const dispatch = useDispatch()
     
     useEffect(() => {   
@@ -45,7 +44,7 @@ const PopularMovies = () => {
     //eslint-disable-next-line  
   }, [num])
 
-    if(loading || !moviesPopular)return <h2>Loading...</h2>
+    if(loading || !moviesPopular.length)return <Spinner />
 
 
     return(
@@ -59,6 +58,7 @@ const PopularMovies = () => {
                     !loading &&  moviesPopular.map( movie => 
                     <MoviesGrid key={movie.id} 
                     movieID={movie.id} posterPath={movie.poster_path} title={movie.title}/> ) 
+                    
                 }
                 </div>
             </div>  

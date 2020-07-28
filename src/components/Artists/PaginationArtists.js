@@ -36,8 +36,8 @@ const PaginationArtists = ({num}) => {
               let active = num  === number ? 'activeBtnLink' : ''
                 return (
                   <li  onClick={()=> history.push(`/artists/${number}`)} key={number} 
-                  className={`page-item ${active}`}>
-                      <button className="btnLink">{number}</button>            
+                  className="page-item">
+                      <button className={`btnLink ${active}`}>{number}</button>            
                   </li>
                 )
             })

@@ -43,8 +43,8 @@ const PaginationSearch = ({ num }) => {
             pageNumbers.map(number => {              
               let active = num === number ? 'activeBtnLink' : ''
                 return (
-                  <li onClick={() => history.push(`/search_movies/${number}`) } key={number} className={`page-item ${active}`}>
-                      <button className="btnLink">{number}</button>            
+                  <li onClick={() => history.push(`/search_movies/${number}`) } key={number} className="page-item ">
+                      <button className={`btnLink ${active}`}>{number}</button>            
                   </li>
                 )
             })

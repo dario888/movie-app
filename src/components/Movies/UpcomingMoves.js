@@ -4,8 +4,7 @@ import  { useParams} from 'react-router-dom'
 
 import MoviesGrid from './MoviesGrid'
 import PaginationMovies from './PaginationMovies'
-// import SearchBar from '../SearchBar';                    
-// import Title from '../Title';                    
+import Spinner from '../../Spinner';                     
 import Header from '../Header';                              
 import {getMovies} from '../../actions/moviesActions'
 
@@ -41,7 +40,7 @@ const UpcomingMoves = () => {
         //eslint-disable-next-line  
     }, [num])
 
-    if(loading || !moviesUpcoming)return <h2>Loading...</h2>
+    if(loading || !moviesUpcoming.length)return <Spinner/>
 
 
     return(

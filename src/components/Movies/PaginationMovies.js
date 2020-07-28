@@ -41,8 +41,8 @@ const PaginationMovies = ({num, page}) => {
             pageNumbers.map(number => {              
               let active = num === number ? 'activeBtnLink' : ''
                 return (
-                  <li onClick={() => history.push(`/${page}/${number}`) } key={number} className={`page-item ${active}`}>
-                      <button className="btnLink">{number}</button>            
+                  <li onClick={() => history.push(`/${page}/${number}`) } key={number} className="page-item">
+                      <button className={`btnLink ${active}`}>{number}</button>            
                   </li>
                 )
             })
