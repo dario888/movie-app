@@ -48,15 +48,13 @@ const UpcomingMoves = () => {
         <Header titleName={titleName} headerBg={bgColorUpcoming} />
         {/* GRID     */} 
         <section className="container-fluid py-4 bgUpcoming">
-            <div className="container">
-                <div className="row justify-content-center " >                 
-                {                            
-                    !loading &&  moviesUpcoming.map( movie => 
-                    <MoviesGrid key={movie.id} 
-                    movieID={movie.id} posterPath={movie.poster_path} title={movie.title}/> ) 
-                }
-                </div>
-            </div>  
+            <div className="gridRow justify-content-center" >                 
+            {                            
+                !loading &&  moviesUpcoming.map( movie => 
+                <MoviesGrid key={movie.id} 
+                movieID={movie.id} posterPath={movie.poster_path} title={movie.title}/> ) 
+            }
+            </div>
         <PaginationMovies num={num} page={upcoming} />
         </section>
         {/* GRID  */} 

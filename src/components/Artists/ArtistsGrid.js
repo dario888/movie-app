@@ -15,15 +15,15 @@ const ArtistsGrid = ({artistID, profilePath, artistName, artistMovies}) => {
     
    
     return (
-        <div className="row justify-content-center col-sm-6 col-lg-4 mb-4" >
-            <div className="card">
+        <div className=" col-sm-6 col-lg-4 col-xl-3 mb-4 " >
+            <div className="card align-items-center mx-auto">
             <img src={`${urlImage}/w500/${profilePath}`} className="card-img-top" alt="poster" />
             <div className="card-body bg-success">
                 <h5 className="card-title text-light">{artistName}</h5>
                 <p className="text-light">
                     {artistMovies.map(m => m.name || m.title).join(', ')}
                 </p>
-                <NavLink  to="/artist_details" className="btn btn-outline-warning text-light" 
+                <NavLink  to="/artist_details" className="btn btn-primary text-light" 
                 onClick={ () => dispatch( artistDetails(artistID) ) } >
                     Details
                 </NavLink>

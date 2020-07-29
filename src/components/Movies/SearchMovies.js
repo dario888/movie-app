@@ -37,16 +37,14 @@ const SearchMovies = () => {
         <Fragment>
             <section className="container-fliud py-4 bgSearchMovie">
             <SearchBar /> 
-            <div className="container mt-5">
-                <div className="row justify-content-center" >                 
-                {
-                    !loading &&  searchMovie.map( movie =>
-                    <MoviesGrid key={movie.id} 
-                    movieID={movie.id} posterPath={movie.poster_path} title={movie.title}/> )
+            <div className="gridRow justify-content-center mt-5" >                 
+            {
+                !loading &&  searchMovie.map( movie =>
+                <MoviesGrid key={movie.id} 
+                movieID={movie.id} posterPath={movie.poster_path} title={movie.title}/> )
 
-                }
-                </div>
-            </div> 
+            }
+            </div>
         <PaginationSearch num={num}/>
         </section> 
         </Fragment>

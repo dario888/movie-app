@@ -24,7 +24,6 @@ const PopularMovies = () => {
         loading: state.movies.loading
     }))
   
-    console.log('POPULAR');
     const dispatch = useDispatch()
     
     useEffect(() => {   
@@ -52,17 +51,15 @@ const PopularMovies = () => {
         <Header titleName={popularMovies} headerBg={bgColorPopular} />
         {/* GRID     */} 
         <section className="container-fluid py-4 bgPopular">
-            <div className="container">
-                <div className="row justify-content-center " >                 
-                {                            
-                    !loading &&  moviesPopular.map( movie => 
-                    <MoviesGrid key={movie.id} 
-                    movieID={movie.id} posterPath={movie.poster_path} title={movie.title}/> ) 
-                    
-                }
-                </div>
-            </div>  
-                <PaginationMovies num={num} page={popular}/>
+            <div className="gridRow justify-content-center" >                 
+            {                            
+                !loading &&  moviesPopular.map( movie => 
+                <MoviesGrid key={movie.id} 
+                movieID={movie.id} posterPath={movie.poster_path} title={movie.title}/> ) 
+                
+            }
+            </div>
+            <PaginationMovies num={num} page={popular}/>
         </section>
         </Fragment>
   

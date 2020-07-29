@@ -37,17 +37,15 @@ const SearchArtists = () => {
         <Fragment>
             <section className="container-fluid py-4 bgSearchArtist">
             <SearchBarArtist />
-            <div className="container mt-5">
-                <div className="row justify-content-center" >                 
-                {
-                    !artistsLoading &&  searchArtist.map( artist =>
-                    <ArtistsGrid key={artist.id} 
-                    artistID={artist.id} profilePath={artist.profile_path} 
-                    artistName={artist.name} artistMovies={artist.known_for}/> )
+            <div className="row justify-content-center mt-5" >                 
+            {
+                !artistsLoading &&  searchArtist.map( artist =>
+                <ArtistsGrid key={artist.id} 
+                artistID={artist.id} profilePath={artist.profile_path} 
+                artistName={artist.name} artistMovies={artist.known_for}/> )
 
-                }
-                </div>
-            </div> 
+            }
+            </div>      
         <PaginationSearchArtist num={num} />
         </section> 
         </Fragment>

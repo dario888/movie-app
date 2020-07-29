@@ -14,8 +14,8 @@ const MoviesGrid = ({ posterPath, title, movieID }) => {
    
 
     return (
-        <div className="row justify-content-center col-sm-6 col-lg-4 mb-4">
-            <div className="card" >
+        <div className="col-sm-6 col-lg-4 col-xl-3 mb-4 ">
+            <div className="card align-items-center mx-auto" >
                 <img src={`${urlImage}/w500/${posterPath}`} className="card-img-top" alt="poster" />
                 <div className="card-body bg-light">
                     <h5 className="card-title text-muted">{title}</h5>

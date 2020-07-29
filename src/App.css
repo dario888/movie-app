@@ -83,6 +83,12 @@ body {
     background-color: #505C64 ;
 }
 
+/* ------------------------------Grid---------------- -----------------------*/
+.gridRow {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
 /* ======================================Navbar=============================================== */
 /* Navbar */
 .nav-menu{
@@ -146,29 +152,29 @@ body {
 
 /* --------------------------------------POPULAR MOVIES -----------------------------------------*/
 .bgColorPopular {
-    background: #43334C;
+    background: linear-gradient(45deg, #7D3C98 18%,#6C3483 18% 50%, #5B2C6F 50% 85%, #4A235A 85%);
 }
 
 .bgPopular {
-    background: linear-gradient(45deg, #7D3C98 18%,#6C3483 18% 50%, #5B2C6F 50% 85%, #4A235A 85%);
+    background: #43334C ;
 }
 
 /* --------------------------------------TOP RATED MOVIES -----------------------------------------*/
 .bgColorTopRated {
-    background: #662822 ;
+    background:linear-gradient(45deg, #E74C3C 18%, #922B21 18% 50%, #7B241C 50% 85%, #ED3928 85%)  ;
 }
 
 .bgTopRated {
-    background: linear-gradient(45deg, #E74C3C 18%, #922B21 18% 50%, #7B241C 50% 85%, #ED3928 85%);
+    background: #662822 ;
 }
 
 /* --------------------------------------UPCOMING MOVIES -----------------------------------------*/
 .bgColorUpcoming{
-    background: #154360  ;
+    background: linear-gradient(45deg, #2E86C1 18%, #21618C 18% 50%, #1B4F72 50% 85%, #2874A6 85%);
 }
 
 .bgUpcoming {
-    background: linear-gradient(45deg, #2E86C1 18%, #21618C 18% 50%, #1B4F72 50% 85%, #2874A6 85%);
+    background: #154360 ;
     
 }
 
@@ -261,7 +267,7 @@ body {
 
 .card:hover{
     box-shadow: 5px 6px 15px #999;
-    transform: translateY(-3px);
+    transform: translateY(-5px);
 }
 
 /* =======================================Home============================================== */

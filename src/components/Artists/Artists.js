@@ -48,9 +48,8 @@ const Artists = () => {
         <Fragment>
             <HeaderArtist titleName={titleName} textColor='success' headerBg={bgArtistsHeader}/>
         {/* GRID     */} 
-        <section className="container-fluid py-4 bgArtists">
-            <div className="container ">
-                <div className="row justify-content-center " >   
+        <section className="container-fluid py-4 bgArtists"> 
+                <div className="gridRow justify-content-center"  >   
                 {                                      
                     !artistsLoading && artistsList.map( artist => 
                     <ArtistsGrid key={artist.id} 
@@ -58,7 +57,6 @@ const Artists = () => {
                     artistName={artist.name} artistMovies={artist.known_for} /> ) 
                 }
                 </div>
-            </div>  
         <PaginationArtists num={num} />
         </section>
         {/* GRID  */} 

@@ -53,7 +53,7 @@
 
 /* ========================================Artist Details ======================================= */
 .artistDetails {
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),  url('./images/artists-bg.jpg')no-repeat center center/cover;    
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),  url('./images/artistDetails.jpg')no-repeat center center/cover;    
     color: #fff;
     height: 100%;
 }

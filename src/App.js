@@ -31,7 +31,7 @@ function App() {
     <Navbar />
     <Switch>
       <Route exact path='/' component={Home}/>
-      <Suspense fallback={Spinner}>
+      <Suspense fallback={<Spinner/>}>
       <Route exact path='/popular/:num?' component={PopularMovies}/>
       <Route exact path='/search_movies/:num?' component={SearchMovies}/>
       <Route exact path='/details' component={Details}/>

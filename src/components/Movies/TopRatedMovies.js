@@ -52,15 +52,13 @@ const TopRatedMovies = () => {
             <Header titleName={titleName} headerBg={bgColorTopRated} />
         {/* GRID     */} 
         <section className="container-fluid py-4 bgTopRated">
-            <div className="container ">
-                <div className="row justify-content-center " >                 
-                {                            
-                    !loading &&  moviesTopRated.map( movie => 
-                    <MoviesGrid key={movie.id} 
-                    movieID={movie.id} posterPath={movie.poster_path} title={movie.title}/> ) 
-                }
-                </div>
-            </div>  
+            <div className="gridRow justify-content-center" >                 
+            {                            
+                !loading &&  moviesTopRated.map( movie => 
+                <MoviesGrid key={movie.id} 
+                movieID={movie.id} posterPath={movie.poster_path} title={movie.title}/> ) 
+            }
+            </div>
             <PaginationMovies num={num} page={topRated} />
         </section>
        
