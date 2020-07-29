@@ -13,7 +13,6 @@ import data from '../../data.json';
 const Genres = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const {genreMoviesDB} = data;
-    // console.log(data);
 
     const [genreID, setGenreID] = useState(null)
     const dispatch = useDispatch();
@@ -28,7 +27,6 @@ const Genres = () => {
     const {genresList, genresLoading} = useSelector((state) => ({
         genresList: state.genres.genresList, 
         genresLoading: state.genres.genresLoading
-        // moviesDB: state.genres.moviesDB, 
 
     }))
 

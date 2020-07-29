@@ -21,8 +21,6 @@ const Details = () => {
     const goBackHistory = () => history.goBack('/')
     
     const urlImage = process.env.REACT_APP_IMG;
-
-    console.log('DETAILS');
     
     if(loading || !details)return <Spinner />
 

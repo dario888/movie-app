@@ -12,12 +12,10 @@ import {getMovies} from '../../actions/moviesActions'
 
 
 const TopRatedMovies = () => {
+   
     const topRated = 'top_rated'
     const titleName = 'Top Rated'
     const bgColorTopRated = 'bgColorTopRated'
-   
-
-
    
     const {moviesTopRated, loading} = useSelector(state => ({
         moviesTopRated: state.movies.moviesTopRated,
@@ -32,7 +30,6 @@ const TopRatedMovies = () => {
         //eslint-disable-next-line   
     }, []) 
 
-    // console.log('TopRatedMovies MOVIES');
     //converting string param into number
     let {num} = useParams();
     num = !num ? 1 : Number.parseInt(num)

@@ -28,7 +28,6 @@ const UpcomingMoves = () => {
         //eslint-disable-next-line   
     }, []) 
 
-    // console.log('UpcomingMoves MOVIES');
     //converting string param into number
     let {num} = useParams();
     num = !num ? 1 : Number.parseInt(num)
