@@ -20,7 +20,7 @@ const Details = () => {
     const history = useHistory();
     const goBackHistory = () => history.goBack('/')
     
-    const urlImage = process.env.REACT_APP_IMG;
+    const urlImage =  'https://image.tmdb.org/t/p';
     
     if(loading || !details)return <Spinner />
 

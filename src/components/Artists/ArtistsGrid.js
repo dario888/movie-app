@@ -10,7 +10,7 @@ import {artistDetails} from '../../actions/artistsAction'
 const ArtistsGrid = ({artistID, profilePath, artistName, artistMovies}) => {
     const dispatch = useDispatch()
   
-    const urlImage = process.env.REACT_APP_IMG;
+    const urlImage =  'https://image.tmdb.org/t/p';
     
    
     return (
