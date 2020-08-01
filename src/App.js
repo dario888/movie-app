@@ -33,7 +33,7 @@ function App() {
       <Route exact path='/' component={Home}/>
       <Suspense fallback={<Spinner/>}>
       <Route exact path='/popular/:num?' component={PopularMovies}/>
-      <Route exact path='/search_movies/:num?' component={SearchMovies}/>
+      <Route exact path='/search_movies/:search?/:num?' component={SearchMovies}/>
       <Route exact path='/details' component={Details}/>
       <Route exact path='/my_list' component={MyList}/>
       <Route exact path='/top_rated/:num?' component={TopRatedMovies}/>
@@ -41,7 +41,7 @@ function App() {
       <Route exact path='/genres/:num?' component={Genres}/>
       <Route exact path='/artists/:num?' component={Artists}/>
       <Route exact path='/artist_details' component={AritstsDetails}/>
-      <Route exact path='/search_artist/:num?' component={SearchArtists}/>
+      <Route exact path='/search_artist/:search?/:num?' component={SearchArtists}/>
       </Suspense>
     </Switch>
     <Footer />

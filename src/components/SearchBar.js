@@ -13,7 +13,6 @@ const SearchBar = ({btnSearchBg}) => {
     // SET SEARCHMOVIES IN REDUCER
     const history = useHistory();
 
-    // const [searchTerm, setSearchTerm] = useState('');
     
   const {searchTerm} = useSelector((state) => ({ searchTerm: state.movies.searchTerm }) )
 

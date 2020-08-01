@@ -24,6 +24,7 @@ const SearchArtists = () => {
     let {num} = useParams();
     num = !num ? 1 : Number.parseInt(num)
 
+    
     // ComponentDidUpdate when currentPage is change
     useEffect(() => {
         dispatch(artistSearch(searchTerm, num))
@@ -46,7 +47,7 @@ const SearchArtists = () => {
 
             }
             </div>      
-        <PaginationSearchArtist num={num} />
+        <PaginationSearchArtist num={num} searchTerm={searchTerm} />
         </section> 
         </Fragment>
     )

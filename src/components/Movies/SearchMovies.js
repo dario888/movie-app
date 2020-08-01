@@ -21,7 +21,7 @@ const SearchMovies = () => {
 
     const dispatch = useDispatch();
 
-    let {num} = useParams();
+    let { num} = useParams();
     num = !num ?  1 : Number.parseInt(num)
 
     // ComponentDidUpdate when currentPage is change
@@ -45,7 +45,7 @@ const SearchMovies = () => {
 
             }
             </div>
-        <PaginationSearch num={num}/>
+        <PaginationSearch num={num} searchTerm={searchTerm}/>
         </section> 
         </Fragment>
     )

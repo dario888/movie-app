@@ -424,6 +424,10 @@ body {
 
 /* =====================================Footer================================================ */
 
+.divFooter{
+    height: auto;
+}
+
 .aboutContact {
     border-bottom:1px solid #fff;
 }

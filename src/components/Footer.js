@@ -7,7 +7,7 @@ const Footer = () => {
      // 
     //  justify-content-center
     return (
-        <footer className="container-fluid bg-dark px-4">
+        <footer className="container-fluid divFooter bg-dark px-4">
             <div className="row text-light py-2 px-0 aboutContact">
                 <div className="col-sm-6 text-center px-0">
                     <h5 className="pb-3">About Us</h5>

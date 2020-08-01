@@ -4,7 +4,7 @@ import  { useHistory } from 'react-router-dom'
 
 
 
-const PaginationSearchArtist = ({num}) => {
+const PaginationSearchArtist = ({num, searchTerm}) => {
   const history = useHistory()
 
   const {totalSearchResults} = useSelector((state) => ({ 
@@ -28,7 +28,7 @@ const PaginationSearchArtist = ({num}) => {
         <ul className="pagination">
           {
             num > 1 ?
-            <li onClick={ () => history.push(`/search_artist/${num - 1}`) }  className={`page-item `}>
+            <li onClick={ () => history.push(`/search_artist/${searchTerm}/${num - 1}`) }  className={`page-item `}>
                   <button className="btnLink">Prev</button>            
             </li> : 
             <li className={`page-item disable`}>
@@ -40,7 +40,7 @@ const PaginationSearchArtist = ({num}) => {
             pageNumbers.map(number => {              
               let active = num === number ? 'activeBtnLink' : ''
                 return (
-                  <li onClick={() => history.push(`/search_artist/${number}`)} key={number} 
+                  <li onClick={() => history.push(`/search_artist/${searchTerm}/${number}`)} key={number} 
                   className="page-item">
                       <button className={`btnLink ${active}`}>{number}</button>            
                   </li>
@@ -50,7 +50,7 @@ const PaginationSearchArtist = ({num}) => {
 
           {
             num < 10 ?
-            <li onClick={ () => history.push(`/search_artist/${num + 1}`)}  className={`page-item`}>
+            <li onClick={ () => history.push(`/search_artist/${searchTerm}/${num + 1}`)}  className={`page-item`}>
               <button className="btnLink">Next</button>            
             </li> : 
             <li  className={`page-item disable`}>

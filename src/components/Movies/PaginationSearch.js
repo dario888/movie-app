@@ -4,10 +4,11 @@ import  { useHistory } from 'react-router-dom'
 
 
 
-const PaginationSearch = ({ num }) => {
+const PaginationSearch = ({ num, searchTerm }) => {
 
   const {totalSearchResults} = useSelector((state) => ({ 
     totalSearchResults: state.movies.totalSearchResults,
+    // searchTerm: state.movies.searchTerm
 
   }) )
   
@@ -31,7 +32,7 @@ const PaginationSearch = ({ num }) => {
         <ul className="pagination">
           {
             num > 1 ?
-            <li onClick={ () =>  history.push(`/search_movies/${num - 1}`) }  className={`page-item `}>
+            <li onClick={ () =>  history.push(`/search_movies/${searchTerm}/${num - 1}`) }  className={`page-item `}>
                   <button className="btnLink">Prev</button>            
             </li> : 
             <li className={`page-item disable`}>
@@ -43,7 +44,7 @@ const PaginationSearch = ({ num }) => {
             pageNumbers.map(number => {              
               let active = num === number ? 'activeBtnLink' : ''
                 return (
-                  <li onClick={() => history.push(`/search_movies/${number}`) } key={number} className="page-item ">
+                  <li onClick={() => history.push(`/search_movies/${searchTerm}/${number}`) } key={number} className="page-item ">
                       <button className={`btnLink ${active}`}>{number}</button>            
                   </li>
                 )
@@ -52,7 +53,7 @@ const PaginationSearch = ({ num }) => {
 
           {
             num < numberPages ?
-            <li onClick={ () => history.push(`/search_movies/${num + 1}`) }  className={`page-item`}>
+            <li onClick={ () => history.push(`/search_movies/${searchTerm}/${num + 1}`) }  className={`page-item`}>
               <button className="btnLink">Next</button>            
             </li> : 
             <li  className={`page-item disable`}>
